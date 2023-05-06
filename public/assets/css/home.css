@@ -1,0 +1,19 @@
+.cs-shelf__row.is-marginless {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+.cs-shelf__column {
+    min-height: 1px;
+}
+
+/* @media (min-width: 1024px) */
+.c-curved-image-and-text {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    /* background-image: url(../../assets/img/mvc/curve-image-bg.svg); */
+    flex-flow: row;
+    background-size: cover;
+    background-color: transparent;
+}
