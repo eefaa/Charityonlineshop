@@ -18,7 +18,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         $ctg_name = $this->faker->unique()->words($nb=2,$asText = true);
-        $ctg = Str::slug($ctg_name,'-'); //slug
+        $ctg = Str::ctg($ctg_name,'-'); //slug
 
         return [
             'name' => $ctg_name,

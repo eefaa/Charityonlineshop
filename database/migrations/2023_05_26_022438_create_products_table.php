@@ -20,17 +20,15 @@ return new class extends Migration
             $table->string('shortDesc')->nullable();
             $table->text('description')->nullable();
             $table->decimal('oriPrice',8,2);
-            $table->decimal('sellPrice',8,2)->nullable();
-            $table->string('sku');
-            $table->enum('stockStatus',['instock','outofstock']);;
-            $table->boolean('featured')->default(false);
+            $table->enum('stockStatus',['instock','outofstock']);
             $table->unsignedInteger('quantity')->default(10);
             $table->string('img');
             $table->text('imgs')->nullable();
             $table->bigInteger('ctgId')->unsigned()->nullable();
-            $table->timestamps();
             $table->foreign('ctgId')->references('id')->on('categories')->onDelete('cascade');
-            $table->foreign('ctgName')->references('name')->on('categories')->onDelete('cascade');
+            $table->bigInteger('subcId')->unsigned()->nullable();
+            $table->foreign('subcId')->references('id')->on('subcategories')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

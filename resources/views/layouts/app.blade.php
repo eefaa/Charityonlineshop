@@ -14,11 +14,11 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/theme/favicon.ico')}}">
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-
+@livewireStyles
 </head>
-@LivewireStyles
+
 <body>
-   
+    
     <header class="header-area header-style-1 header-height-2">
         <div class="header-top header-top-ptb-1 d-none d-lg-block">
             <div class="container">
@@ -77,64 +77,16 @@
                         <a href="/"><img src="assets/imgs/logo/CCIN-LOGO.jpg" alt="logo"></a>
                     </div>
                     <div class="header-right">
-                        <div class="search-style-1">
-                            <form action="#">                                
-                                <input type="text" placeholder="Search for items...">
-                            </form>
-                        </div>  
+                        @livewire('search-header')  
                         <div class="header-action-right">
                             <div class="header-action-2">
                                 <div class="header-action-icon-2">
-                                    <a href="shop-wishlist.php">
+                                    <!-- <a href="shop-wishlist.php">
                                         <img class="svgInject" alt="Charity Shop" src="assets/imgs/theme/icons/icon-heart.svg">
-                                        <span class="pro-count blue"></span>
-                                    </a>
+                                        <span class="pro-count blue">4</span>
+                                    </a> -->
                                 </div>
-                                <div class="header-action-icon-2">
-                                    <a class="mini-cart-icon" href="cart.html">
-                                        <img alt="Charity Shop" src="assets/imgs/theme/icons/icon-cart.svg">
-                                        <span class="pro-count blue"></span>
-                                    </a>
-                                    
-                                    <!-- shopping cart -->
-                                    <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                        <!-- <ul>
-                                            <li>
-                                                <div class="shopping-cart-img">
-                                                    <a href="product-details.html"><img alt="Charity Shop" src="assets/imgs/shop/thumbnail-3.jpg"></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="product-details.html">Daisy Casual Bag</a></h4>
-                                                    <h4><span>1 × </span>RM800.00</h4>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="shopping-cart-img">
-                                                    <a href="product-details.html"><img alt="Charity Shop" src="assets/imgs/shop/thumbnail-2.jpg"></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="product-details.html">Corduroy Shirts</a></h4>
-                                                    <h4><span>1 × </span>RM3200.00</h4>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                </div>
-                                            </li>
-                                        </ul> -->
-                                        <div class="shopping-cart-footer">
-                                            <div class="shopping-cart-total">
-                                                <h4>Total <span>RM0.00</span></h4>
-                                            </div>
-                                            <div class="shopping-cart-button">
-                                                <a href="cart.html" class="outline">View cart</a>
-                                                <a href="checkout.html">Checkout</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @livewire('cart-icon')
                             </div>
                         </div>
                     </div>
@@ -145,7 +97,7 @@
             <div class="container">
                 <div class="header-wrap header-space-between position-relative">
                     <div class="logo logo-width-1 d-block d-lg-none">
-                        <a href="index.html"><img src="assets/imgs/logo/CCIN-LOGO.jpg" alt="logo"></a>
+                        <a href="{{route('product.checkout')}}"><img src="assets/imgs/logo/CCIN-LOGO.jpg" alt="logo"></a>
                     </div>
 
                     <!-- header for home shop bla blaa -->
@@ -155,9 +107,19 @@
                             <nav>
                                 <ul>
                                     <li><a class="active" href="/">Home </a></li>
-                                    <!-- <li><a href="about.html">About</a></li> -->
+                                    <li><a href="{{route('donate')}}">Donate</a></li>
                                     <li><a href= "{{route('product')}}">Shop</a></li>
-                                    <li><a href="#">Men Clothing<i class="fi-rs-angle-down"></i></a>
+                                    <li><a href="product.men">Men Clothing<i class="fi-rs-angle-down"></i></a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">Top</a></li>
+                                            <li><a href="#">Pants</a></li>
+                                            <li><a href="#">Accessories</a></li>
+                                            <li><a href="#">Shoes</a></li>
+                                            <li><a href="#">Bags</a></li>                                            
+                                        </ul>
+                                    </li>
+                              
+                                    <li><a  href="#">Women Clothing<i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
                                             <li><a href="#">Top</a></li>
                                             <li><a href="#">Pants</a></li>
@@ -166,50 +128,42 @@
                                             <li><a href="#">Bags</a></li>                                            
                                         </ul>
                                     </li> 
-                                    <li><a href="#">Women Clothing<i class="fi-rs-angle-down"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="#">Top</a></li>
-                                            <li><a href="#">Pants</a></li>
-                                            <li><a href="#">Accessories</a></li>
-                                            <li><a href="#">Shoes</a></li>
-                                            <li><a href="#">Bags</a></li>                                            
-                                        </ul>
-                                    </li>   
-                                    <li><a href="#">Home & Garden<i class="fi-rs-angle-down"></i></a>
+                                    <li><a href="{{route('product.garden')}}">Home & Garden<i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
                                             <li><a href="#">Tables</a></li>
                                             <li><a href="#">Chair</a></li>
                                             <li><a href="#">Garden</a></li>                                            
                                         </ul>
                                     </li> 
-                                    <li><a href="#">Books<i class="fi-rs-angle-down"></i></a>
+                                    <li><a href="{{route('product.book')}}">Books<i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
                                             <li><a href="#">Fiction</a></li>
                                             <li><a href="#">Non-Fiction</a></li>                                        
                                         </ul>
                                     </li>                                 
-                                    <!-- <li><a href="contact.html">Contact</a></li> -->
+                                    
+                                    @auth
                                     <li><a href="#">My Account<i class="fi-rs-angle-down"></i></a>
-                                        @auth
                                             @if(Auth::user()->utype == 'ADMIN')
                                             <ul class="sub-menu">
                                                 <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                                                <li><a href="#">Products</a></li>
-                                                <li><a href="#">Categories</a></li>
+                                                <li><a href="{{route('admin.products')}}">Products</a></li>
+                                                <li><a href="{{route('admin.categories')}}">Categories</a></li>
+                                                <li><a href="{{route('admin.subcategories')}}">Sub-categories</a></li>
                                                 <li><a href="#">Orders</a></li>
-                                                <li><a href="#">Customers</a></li>
-                                                <li><a href="#">Logout</a></li>                                            
+                                                <!-- <li><a href="#">Customers</a></li>
+                                                <li><a href="#">Logout</a></li>                                             -->
                                             </ul>
                                             @else
                                             <ul class="sub-menu">
-                                                <li><a href="#">My Account</a></li>
+                                                <li><a href="{{route('user.profile')}}">My Account</a></li>
                                                 <li><a href="#">Order History</a></li>
-                                                <li><a href="#">My Wishlist</a></li>
+                                               
                                                                                         
                                             </ul>
                                             @endif
-                                        @endif
                                     </li>
+                                    @endif
                                 </ul>
                             </nav>
                         </div>
@@ -286,7 +240,7 @@
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
                 <div class="mobile-header-logo">
-                    <a href="index.html"><img src="assets/imgs/logo/CCIN-LOGO.jpg" alt="logo"></a>
+                    <a href="{{route('product.checkout')}}"><img src="assets/imgs/logo/CCIN-LOGO.jpg" alt="logo"></a>
                 </div>
                 <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                     <button class="close-style search-close">
@@ -546,11 +500,14 @@
 <script src="{{asset('assets/js/plugins/jquery.vticker-min.js')}}"></script>
 <script src="{{asset('assets/js/plugins/jquery.theia.sticky.js')}}"></script>
 <script src="{{asset('assets/js/plugins/jquery.elevatezoom.js')}}"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 <!-- Template  JS -->
 <script src="{{asset('assets/js/main.js?v=3.3')}}"></script>
 <script src="{{asset('assets/js/shop.js?v=3.3')}}"></script>
-@LivewireScripts
-</body>
+@livewireScripts
+@stack('scripts')
 
+</body>
 </html>

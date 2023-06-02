@@ -3,62 +3,63 @@
 namespace App\Http\Livewire;
 
 use App\Models\Product;
-// use Livewire\WithPagination;
-use Illuminate\Pagination\Paginator;
+use App\Models\Category;
+use Livewire\WithPagination;    
 use Livewire\Component;
-// use Cart;
-use Gloudemans\ShoppingCart\Facades\Cart;
+// use Gloudemans\ShoppingCart\Facades\Cart;
+use Cart;
 
 class ProductPage extends Component
 {
-    // use WithPagination;
-    public $pageSize = 12;
+    use WithPagination;
+    public $itmSize = 12;  
     public $minValue = 0;
-    public $maxValue = 100;
+    public $maxValue = 1000;
+    public $orderBy = "Default Sorting";
+
+    public function changeSort($itm)
+    {
+        $this->orderBy = $itm;
+    } 
+
+    public function changeItmSize($size)
+    {
+        $this->itmSize = $size;
+    }
 
     public function store($product_id,$product_name,$product_price)
     {
-        // Cart::add($product_id,$product_name,1,$product_price)->associate('\App\Models\Product');
-        Cart::add($product_id,$product_name,1,$product_price);
-        session()->flash('success_message','Item added in Cart');
+        Cart::add($product_id,$product_name,1,$product_price)->associate('\App\Models\Product');
+        session()-> flash('Success message','Item added in Cart');
         return redirect()->route('product.cart');
     }
-//     public function store($product_id, $product_name, $product_price)
-//     {
-//         // Retrieve the cart information from the session
-//         $cart = session()->get('product.cart');
-        
-//         // Check if the product is already in the cart
-//         if (isset($cart[$product_id])) 
-//         {
-//             // If it is, update the quantity
-//             $cart[$product_id]['quantity']++;
-//         }
-//         else 
-//         {
-//             // If it's not, add it to the cart with a quantity of 1
-//             $cart[$product_id] = [
-//                 'name' => $product_name,
-//                 'price' => $product_price,
-//                 'quantity' => 1
-//             ];
-//     }
-    
-//     // Store the updated cart information in the session
-//     session()->put('product.cart', $cart);
-    
-//     // Redirect the user back to the product page or cart page
-//     return redirect()->back()->with('success_message', 'Product added to cart!');
-// }
 
-    public function changePageSize($size)
-    {
-        $this->pageSize = $size;
-    }
     public function render()
     {
-        $products = Product ::paginate(12);
-        return view('livewire.product-page',['products'=>$products]);
-        // return view('livewire.product-page');
+        if($this->orderBy == 'Price: Low to High')
+        {
+            $products = Product::whereBetween('oriPrice',[$this->minValue,$this->maxValue])->orderBy('oriPrice','ASC')->paginate($this->itmSize);
+        }
+        else if($this->orderBy == 'Price: High to Low') 
+        {
+            $products = Product::whereBetween('oriPrice',[$this->minValue,$this->maxValue])->orderBy('oriPrice','DESC')->paginate($this->itmSize);
+        }
+        else if($this->orderBy == 'Latest Item')
+        {
+            $products = Product::whereBetween('oriPrice',[$this->minValue,$this->maxValue])->orderBy('created_at','DESC')->paginate($this->itmSize);
+        }
+        else
+        {
+            $products = Product ::paginate($this->itmSize);
+        }
+        
+        $categories = Category::orderBy('name','ASC')->get();
+        
+        return view('livewire.product-page', [
+            'products' => $products,
+            'categories' => $categories,
+
+        ]);
+       
     }
 }

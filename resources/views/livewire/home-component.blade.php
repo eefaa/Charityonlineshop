@@ -10,7 +10,7 @@
                                     <h2 class="animated fw-900 text-brand">Your Contribution.</h2>
                                     <h1 class="animated fw-900 ">Many Solutions</h1>
                                     <p class="animated">Help us save and improve lives for the one in need by making a donation today</p>
-                                    <a class="animated btn btn-brush btn-brush-3" href="donate.html"> Donate Now </a>
+                                    <a class="animated btn btn-brush btn-brush-3" href="{{route('donate')}}"> Donate Now </a>
                                 </div>
                             </div>
                             <div class="col-lg-7 col-md-6">

@@ -3,15 +3,18 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
-use Illuminate\View\View;
+// use Livewire\Component;
+use App\Models\Category;
 
 class AppLayout extends Component
 {
-    /**
-     * Get the view / contents that represents the component.
-     */
-    public function render(): View
+  
+
+    public function render()
     {
-        return view('layouts.app');
+        $categories = Category::where('name', "Women's Clothing")->get();
+        // return view('layouts.app',compact('categories'));
+        return view('layouts.app')
+            ->with('categories', $categories);
     }
 }

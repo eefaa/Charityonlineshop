@@ -18,7 +18,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         $product_name = $this->faker->unique()->words($nb=6,$asText = true);
-        $ctg = Str::slug($product_name,'-'); //slug
+        $ctg = Str::ctg($product_name,'-'); //slug
         return [
             'name' =>$product_name,
             'ctg' => $ctg,
