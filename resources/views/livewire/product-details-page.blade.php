@@ -65,7 +65,8 @@
                                         </div>
                                         <div class="bt-1 border-color-1 mt-15 mb-15"></div>
                                         <div class="short-desc mb-30">
-                                            <p>{{$product->shortDesc}}</p>
+                                            <p>{!! nl2br($product->shortDesc)!!}</p>
+                                            
                                         </div>
                                         <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                         <div class="detail-extralink">
@@ -103,7 +104,7 @@
                                 <div class="tab-content shop_info_tab entry-main-content">
                                     <div class="tab-pane fade show active" id="Description">
                                         <div class="">
-                                            {{$product->description}}
+                                            {!! nl2br($product->description) !!}
                                         </div>
                                     </div> 
                                 </div>            

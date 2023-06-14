@@ -68,15 +68,6 @@
                                                 <img class="hover-img" src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-2.jpeg" alt="{{$product->name}}">
                                             </a>
                                         </div>
-                                        <!-- <div class="product-action-1">
-                                            <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
-                                                <i class="fi-rs-search"></i></a>
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                            <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
-                                        </div> -->
-                                        <!-- <div class="product-badges product-badges-position product-badges-mrg">
-                                            <span class="hot">Hot</span>
-                                        </div> -->
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
@@ -136,12 +127,12 @@
                             </ul>
                         </div>
                         <!-- Fillter By Price -->
-                        <div class="sidebar-widget price_range range mb-30">
+                        <!-- <div class="sidebar-widget price_range range mb-30">
                             <div class="widget-header position-relative mb-20 pb-10">
                                 <h5 class="widget-title mb-10">Filter by price</h5>
                                 <div class="bt-1 border-color-1"></div>
                             </div>
-                            <!-- <div class="price-filter">
+                            <div class="price-filter">
                                 <div class="price-filter-inner">
                                     <div id="slider-range" wire:ignore></div>
                                     <div class="price_slider_amount">
@@ -150,7 +141,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="price-filter">
                                 <div class="price-filter-inner">
                                     <div id="slider-range" wire:ignore></div>
@@ -162,7 +153,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- <button wire:click="applyFilter">Apply Filter</button> -->
 

@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Livewire\WithPagination; 
 use Livewire\Component;
+use Cart;
 
 class Kategori extends Component
 {
@@ -14,7 +15,14 @@ class Kategori extends Component
         public $maxValue = 100;
         public $orderBy = "Default Sorting";
         public $ctg;
-    
+
+        public function store($product_id,$product_name,$product_price)
+        {
+            Cart::add($product_id,$product_name,1,$product_price)->associate('\App\Models\Product');
+            session()-> flash('Success message','Item added in Cart');
+            return redirect()->route('product.cart');
+        }
+
         public function mount ($ctg)
         {
             $this->ctg = $ctg;

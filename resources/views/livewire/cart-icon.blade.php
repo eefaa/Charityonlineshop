@@ -12,7 +12,7 @@
                                             @foreach(Cart::content() as $item)
                                                 <li>
                                                     <div class="shopping-cart-img">
-                                                        <a href="{{route('product.details',['ctg'=> $item->model->ctg])}}"><img alt="{{($item->model->name)}}" src="{{asset('assets/imgs/products/')}}{{$item->image}}"></a>
+                                                        <a href="{{route('product.details',['ctg'=> $item->model->ctg])}}"><img alt="{{($item->model->name)}}" src="{{asset('assets/imgs/shop/product-')}}{{$item->id}}-1.jpeg"></a>
                                                     </div>
                                                     <div class="shopping-cart-title">
                                                         <h4><a href="{{route('product.details',['ctg'=> $item->model->ctg])}}">{{substr($item->model->name,0,20)}}...</a></h4>
@@ -30,7 +30,9 @@
                                             </div>
                                             <div class="shopping-cart-button">
                                                 <a href="{{route('product.cart')}}" class="outline">View cart</a>
-                                                <a href="checkout.html">Checkout</a>
+                                               
+                                                <a href="{{ route('product.checkout') }}">Checkout</a>
+
                                             </div>
                                         </div>
                                     </div>

@@ -35,7 +35,7 @@
                                 @if(Cart::count() > 0)
                                 @foreach(Cart::content() as $item) 
                                     <tr>
-                                        <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-')}}{{$item->id}}-1.jpg" alt="#"></td>
+                                        <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-')}}{{$item->id}}-1.jpeg" alt="#"></td>
                                         <td class="product-des product-name">
                                             <h5 class="product-name"><a href="product-details.html">{{$item->model->name}}</a></h5>
                                             <!-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
@@ -80,6 +80,8 @@
                         <div class="cart-action text-end mt-3">
                             <a href="{{route('product.checkout')}}" class="btn "> <i class="fi-rs-box-alt mr-10"></i> Proceed To Checkout</a>
                         </div>
+                        
+
                         <!-- <div class="divider center_icon mt-50 mb-50"><i class="fi-rs-fingerprint"></i></div>
                             <div class="col-lg-12 col-md-6 pr-4">
                                 <div class="border p-md-4 p-30 border-radius cart-totals">

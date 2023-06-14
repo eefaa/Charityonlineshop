@@ -7,6 +7,7 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <meta property="og:title" content="">
 <meta property="og:type" content="">
 <meta property="og:url" content="">
@@ -14,6 +15,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/theme/favicon.ico')}}">
 <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
 @livewireStyles
 </head>
 
@@ -80,12 +83,6 @@
                         @livewire('search-header')  
                         <div class="header-action-right">
                             <div class="header-action-2">
-                                <div class="header-action-icon-2">
-                                    <!-- <a href="shop-wishlist.php">
-                                        <img class="svgInject" alt="Charity Shop" src="assets/imgs/theme/icons/icon-heart.svg">
-                                        <span class="pro-count blue">4</span>
-                                    </a> -->
-                                </div>
                                 @livewire('cart-icon')
                             </div>
                         </div>
@@ -99,17 +96,18 @@
                     <div class="logo logo-width-1 d-block d-lg-none">
                         <a href="{{route('product.checkout')}}"><img src="assets/imgs/logo/CCIN-LOGO.jpg" alt="logo"></a>
                     </div>
-
                     <!-- header for home shop bla blaa -->
                     <div class="header-nav d-none d-lg-flex">
                         
                         <div class="main-menu main-menu-padding-1 main-menu-lh-2 d-none d-lg-block">
                             <nav>
-                                <ul>
+                                <ul class="nav justify-content-center">
                                     <li><a class="active" href="/">Home </a></li>
                                     <li><a href="{{route('donate')}}">Donate</a></li>
                                     <li><a href= "{{route('product')}}">Shop</a></li>
-                                    <li><a href="product.men">Men Clothing<i class="fi-rs-angle-down"></i></a>
+
+                        
+                                    <!-- <li><a href="product.men">Men Clothing<i class="fi-rs-angle-down"></i></a>
                                         <ul class="sub-menu">
                                             <li><a href="#">Top</a></li>
                                             <li><a href="#">Pants</a></li>
@@ -140,7 +138,7 @@
                                             <li><a href="#">Fiction</a></li>
                                             <li><a href="#">Non-Fiction</a></li>                                        
                                         </ul>
-                                    </li>                                 
+                                    </li>                                  -->
                                     
                                     @auth
                                     <li><a href="#">My Account<i class="fi-rs-angle-down"></i></a>
@@ -150,16 +148,12 @@
                                                 <li><a href="{{route('admin.products')}}">Products</a></li>
                                                 <li><a href="{{route('admin.categories')}}">Categories</a></li>
                                                 <li><a href="{{route('admin.subcategories')}}">Sub-categories</a></li>
-                                                <li><a href="#">Orders</a></li>
-                                                <!-- <li><a href="#">Customers</a></li>
-                                                <li><a href="#">Logout</a></li>                                             -->
+                                       
                                             </ul>
                                             @else
                                             <ul class="sub-menu">
                                                 <li><a href="{{route('user.profile')}}">My Account</a></li>
-                                                <li><a href="#">Order History</a></li>
-                                               
-                                                                                        
+                                                <!-- <li><a href="#">Order History</a></li>                                            -->
                                             </ul>
                                             @endif
                                     </li>
@@ -167,70 +161,7 @@
                                 </ul>
                             </nav>
                         </div>
-                    </div>
-                   
-                    <!-- <div class="header-action-right d-block d-lg-none"> 
-                        <div class="header-action-2">
-                            <div class="header-action-icon-2">
-                                <a href="shop-wishlist.php">
-                                    <img alt="Charity Shop" src="assets/imgs/theme/icons/icon-heart.svg">
-                                    <span class="pro-count white">4</span>
-                                </a>
-                            </div>
-                            <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="cart.html">
-                                    <img alt="Charity Shop" src="assets/imgs/theme/icons/icon-cart.svg">
-                                    <span class="pro-count white">2</span>
-                                </a>
-                                <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                    <ul>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="product-details.html"><img alt="Charity Shop" src="assets/imgs/shop/thumbnail-3.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="product-details.html">baju</a></h4> 
-                                                
-                                                <h3><span>1 × </span>RM800.00</h3>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="shopping-cart-img">
-                                                <a href="product-details.html"><img alt="Charity Shop" src="assets/imgs/shop/thumbnail-4.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h4><a href="product-details.html">Macbook Pro 2022</a></h4>
-                                                <h3><span>1 × </span>RM35.00</h3>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="shopping-cart-footer">
-                                        <div class="shopping-cart-total">
-                                            <h4>Total <span>RM383.00</span></h4>
-                                        </div>
-                                        <div class="shopping-cart-button">
-                                            <a href="cart.html">View cart</a>
-                                            <a href="shop-checkout.php">Checkout</a>
-                                        </div>
-                                    </div>
-                                </div> 
-                            </div>
-                            <div class="header-action-icon-2 d-block d-lg-none">
-                                <div class="burger-icon burger-icon-white">
-                                    <span class="burger-icon-top"></span>
-                                    <span class="burger-icon-mid"></span>
-                                    <span class="burger-icon-bottom"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    
+                    </div> 
                 </div>
             </div>
         </div>
@@ -257,24 +188,6 @@
                     </form>
                 </div>
                 <div class="mobile-menu-wrap mobile-header-border">
-                    <!-- <div class="main-categori-wrap mobile-header-border">
-                        <a class="categori-button-active-2" href="#">
-                            <span class="fi-rs-apps"></span> Browse Categories
-                        </a>
-                        <div class="categori-dropdown-wrap categori-dropdown-active-small">
-                            <ul>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-dress"></i>Women's Clothing</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-tshirt"></i>Men's Clothing</a></li>
-                                <li> <a href="shop.html"><i class="surfsidemedia-font-smartphone"></i> Cellphones</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Computer & Office</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Consumer Electronics</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>Home & Garden</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-high-heels"></i>Shoes</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-teddy-bear"></i>Mother & Kids</a></li>
-                                <li><a href="shop.html"><i class="surfsidemedia-font-kite"></i>Outdoor fun</a></li>
-                            </ul>
-                        </div>
-                    </div> -->
                     <!-- mobile menu start -->
                     <nav>
                         <ul class="mobile-menu">
@@ -314,23 +227,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <!-- <li class="menu-item-has-children"><span class="menu-expand"></span><a href="blog.html">Blog</a></li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Language</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                    <li><a href="#">Spanish</a></li>
-                                </ul>
-                            </li> -->
                         </ul>
                     </nav>
                     <!-- mobile menu end -->
                 </div>
                 <div class="mobile-header-info-wrap mobile-header-border">
-                    <!-- <div class="single-mobile-header-info mt-30">
-                        <a href="contact.html"> Our location </a>
-                    </div> -->
                     <div class="single-mobile-header-info">
                     @auth
                             <ul>                                
@@ -399,9 +300,11 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="widget-about font-md mb-md-5 mb-lg-0">
-                            <div class="logo logo-width-1 wow fadeIn animated">
-                                <a href="index.html"><img src="assets/imgs/logo/CCIN-LOGO.jpg" alt="logo"></a>
-                            </div>
+                        <div class="logo logo-width-1 wow fadeIn animated">
+                            <a href="index.html">
+                                <img src="assets/imgs/logo/CCIN-LOGO.jpg" alt="logo" class="smaller-logo">
+                            </a>
+                        </div>
                             <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
                             <p class="wow fadeIn animated">
                                 <strong>Address: </strong>UTM
@@ -412,17 +315,17 @@
                             <p class="wow fadeIn animated">
                                 <strong>Email: </strong>contact@utmcarecharity
                             </p>
-                            <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow Us</h5>
+                            <!-- <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow Us</h5>
                             <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
                                 <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
                                 <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
                                 <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
                                 <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
                                 <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-3">
+                    <!-- <div class="col-lg-2 col-md-3">
                         <h5 class="widget-title wow fadeIn animated">About</h5>
                         <ul class="footer-list wow fadeIn animated mb-sm-5 mb-md-0">
                             <li><a href="#">About Us</a></li>
@@ -431,8 +334,8 @@
                             <li><a href="#">Terms &amp; Conditions</a></li>
                             <li><a href="#">Contact Us</a></li>                            
                         </ul>
-                    </div>
-                    <div class="col-lg-2  col-md-3">
+                    </div> -->
+                    <!-- <div class="col-lg-2  col-md-3">
                         <h5 class="widget-title wow fadeIn animated">My Account</h5>
                         <ul class="footer-list wow fadeIn animated">
                             <li><a href="my-account.html">My Account</a></li>
@@ -441,7 +344,7 @@
                             <li><a href="#">Track My Order</a></li>                            
                             <li><a href="#">Order</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                     <!-- <div class="col-lg-4 mob-center">
                         <h5 class="widget-title wow fadeIn animated">Install App</h5>
                         <div class="row">
@@ -468,14 +371,14 @@
                 </div>
                 <div class="col-lg-6">
                     <p class="float-md-left font-sm text-muted mb-0">
-                        <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-conditions.html">Terms & Conditions</a>
-                    </p>
-                </div>
-                <div class="col-lg-6">
-                    <p class="text-lg-end text-start font-sm text-muted mb-0">
                         &copy; <strong class="text-brand">UTM CARE CHARITY ONLINE SHOP</strong> All rights reserved
                     </p>
                 </div>
+                <!-- <div class="col-lg-6">
+                    <p class="text-lg-end text-start font-sm text-muted mb-0">
+                        &copy; <strong class="text-brand">UTM CARE CHARITY ONLINE SHOP</strong> All rights reserved
+                    </p>
+                </div> -->
             </div>
         </div>
     </footer>    
@@ -506,6 +409,8 @@
 <!-- Template  JS -->
 <script src="{{asset('assets/js/main.js?v=3.3')}}"></script>
 <script src="{{asset('assets/js/shop.js?v=3.3')}}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+
 @livewireScripts
 @stack('scripts')
 

@@ -12,7 +12,7 @@
         <section class="mt-50 mb-50">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 mb-sm-15">
+                    <!-- <div class="col-lg-6 mb-sm-15">
                         <div class="toggle_info">
                             <span><i class="fi-rs-user mr-10"></i><span class="text-muted">Already have an account?</span> <a href="#loginform" data-bs-toggle="collapse" class="collapsed" aria-expanded="false">Click here to login</a></span>
                         </div>
@@ -41,7 +41,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col-lg-6">
                         <div class="toggle_info">
                             <span><i class="fi-rs-label mr-10"></i><span class="text-muted">Have a coupon?</span> <a href="#coupon" data-bs-toggle="collapse" class="collapsed" aria-expanded="false">Click here to enter your code</a></span>
@@ -70,46 +70,38 @@
                     <div class="col-md-6">
                         <div class="mb-25">
                             <h4>Delivery Address</h4>
-                            <p style="font-size: 14px; margin-top: 10px;">Iffah Najihah | 0192580969</p>
-                            <p style="font-size: 14px;">Banting, Selangor</p>
+                            <div>
+                                <label for="name">Name:</label>
+                                <span id="name">{{ $name }}</span>
+                            </div>
+                            <div>
+                                <label for="phone">Phone:</label>
+                                <span id="phone">{{ $phone }}</span>
+                            </div>
+                            <div>
+                                <label for="address">Address:</label>
+                                <span id="address">{{ $address }}</span>
+                            </div>
                         </div>
-                        <button onclick="showAddressForm()" class="btn btn-primary mb-4">Change Address</button>
+                        <!-- <button class="btn btn-primary mb-4">Change Address</button>
                         <div id="addressForm" style="display: none;">
-                            <form>
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Enter name">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="phoneNumber">Phone Number</label>
-                                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter phone number">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="address">Address</label>
-                                    <input type="text" class="form-control" id="address" placeholder="Enter address">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="state">State</label>
-                                    <input type="text" class="form-control" id="state" placeholder="Enter state">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="postalCode">Postal Code</label>
-                                    <input type="text" class="form-control" id="postalCode" placeholder="Enter postal code">
-                                </div>
-
-                                <button type="submit" class="btn btn-primary">Save Address</button>
+                            <form wire:submit.prevent="updateAddress">
+                            <div>
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" wire:model="name">
+                            </div>
+                            <div>
+                                <label for="phone">Phone:</label>
+                                <input type="text" id="phone" wire:model="phone">
+                            </div>
+                            <div>
+                                <label for="address">Address:</label>
+                                <input type="text" id="address" wire:model="address">
+                            </div>
+                            <button type="submit">Update</button>
                             </form>
-                        </div>
-                        <script>
-                            function showAddressForm() {
-                                var addressForm = document.getElementById("addressForm");
-                                addressForm.style.display = "block";
-                            }
-                        </script>
+                        </div> -->
+                       
                         <!-- <form method="post">
                             <div class="form-group">
                                 <input type="text" required="" name="fname" placeholder="First name *">
@@ -218,7 +210,7 @@
                         </form> -->
                     </div>
                     <div class="col-md-6">
-                        <div class="order_review">
+                        <div class="order_review"> 
                             <div class="mb-20">
                                 <h4>Your Orders</h4>
                             </div>
@@ -233,7 +225,7 @@
                                     <tbody>
                                     @foreach(Cart::content() as $item)
                                         <tr>
-                                            <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-')}}{{$item->id}}-1.jpg" alt="#"></td>
+                                            <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-')}}{{$item->id}}-1.jpeg" alt="#"></td>
                                             <td class="text-left">
                                                 <h5><a href="product-details.html">{{$item->model->name}}</a></h5>
                                                 <h5><span>RM{{$item->model->oriPrice}}</span></h5>
@@ -281,14 +273,17 @@
                                     </div>
                                     <div class="custome-radio">
                                         <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios5">
-                                        <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse" data-target="#paypal" aria-controls="paypal">Paypal</label>                                        
+                                        <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse" data-target="#stripe\" aria-controls="paypal">Debit/Credit</label>                                        
                                     </div>
                                 </div>
                             </div>
-                            <a href="{{route('payment')}}" class="btn btn-fill-out btn-block mt-30">Place Order</a>
+                            <!-- <button type="submit" class="btn btn-fill-out btn-block mt-30">Place Order</button>    -->
+                            <button id="btn">Checkout</button>
+                            <script src="http://js.stripe.com/v3/"></script>
+                            <script src="script.js"></script>
                         </div>
                     </div>
-                        </div>
+                </div>
             </div>
         </section>
     </main>

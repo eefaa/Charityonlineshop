@@ -4417,22 +4417,22 @@ table .product-thumbnail img {
   padding: 8px 40px;
 }
 
-.product-extra-link2 a {
+/* .product-extra-link2 a {
   background: #fff none repeat scroll 0 0;
   border: 1px solid #e5e5e5;
   color: #333;
   border-radius: 4px;
   display: inline-block;
-  height: 40px;
+  height: 20px;
   line-height: 40px;
-  position: relative;
+  position: static;
   text-align: center;
   vertical-align: top;
   width: 40px;
   margin: 0 3px;
   transition: all 0.5s ease-out 0s;
   -webkit-transition: all 0.5s ease-out 0s;
-}
+} */
 
 .product-extra-link2 a:hover {
   background-color: #F15412;
@@ -5310,7 +5310,7 @@ h6.post-title {
 }
 
 .logo.logo-width-1 {
-  margin-right: 123px;
+  margin-right: 50px;
 }
 
 .logo.logo-width-1 a img {
@@ -9944,4 +9944,3 @@ span.fi-rs-apps {
 		padding-left:3%;
 	}  
 }
-

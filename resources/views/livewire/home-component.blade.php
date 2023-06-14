@@ -1032,7 +1032,7 @@
                 <!--End tab-content-->
             <!-- </div>
         </section>
-        <!-- <section class="banner-2 section-padding pb-0">
+        <section class="banner-2 section-padding pb-0">
             <div class="container">
                 <div class="banner-img banner-big wow fadeIn animated f-none">
                     <img src="assets/imgs/banner/banner-4.png" alt="">
