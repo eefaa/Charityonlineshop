@@ -83,68 +83,9 @@
                                 <span id="address">{{ $address }}</span>
                             </div>
                         </div>
-                        <!-- <button class="btn btn-primary mb-4">Change Address</button>
-                        <div id="addressForm" style="display: none;">
-                            <form wire:submit.prevent="updateAddress">
-                            <div>
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" wire:model="name">
-                            </div>
-                            <div>
-                                <label for="phone">Phone:</label>
-                                <input type="text" id="phone" wire:model="phone">
-                            </div>
-                            <div>
-                                <label for="address">Address:</label>
-                                <input type="text" id="address" wire:model="address">
-                            </div>
-                            <button type="submit">Update</button>
-                            </form>
-                        </div> -->
-                       
-                        <!-- <form method="post">
-                            <div class="form-group">
-                                <input type="text" required="" name="fname" placeholder="First name *">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" required="" name="lname" placeholder="Last name *">
-                            </div>
-                            <div class="form-group">
-                                <input required="" type="text" name="cname" placeholder="Company Name">
-                            </div>
-                            <div class="form-group">
-                                <div class="custom_select">
-                                    <select class="form-control select-active">
-                                        <option value="">Select an option...</option>
-                                        <option value="AX">Aland Islands</option>
-                                        <option value="AF">Afghanistan</option>
-                                        <option value="AL">Albania</option>
-
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="billing_address" required="" placeholder="Address *">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="billing_address2" required="" placeholder="Address line2">
-                            </div>
-                            <div class="form-group">
-                                <input required="" type="text" name="city" placeholder="City / Town *">
-                            </div>
-                            <div class="form-group">
-                                <input required="" type="text" name="state" placeholder="State / County *">
-                            </div>
-                            <div class="form-group">
-                                <input required="" type="text" name="zipcode" placeholder="Postcode / ZIP *">
-                            </div>
-                            <div class="form-group">
-                                <input required="" type="text" name="phone" placeholder="Phone *">
-                            </div>
-                            <div class="form-group">
-                                <input required="" type="text" name="email" placeholder="Email address *">
-                            </div>
-                            <div class="form-group">
+                        <div class="divider mt-50 mb-50"></div>
+                        <form wire:submit.prevent="updateAddress">
+                            <!-- <div class="form-group">
                                 <div class="checkbox">
                                     <div class="custome-checkbox">
                                         <input class="form-check-input" type="checkbox" name="checkbox" id="createaccount">
@@ -154,7 +95,7 @@
                             </div>
                             <div id="collapsePassword" class="form-group create-account collapse in">
                                 <input required="" type="password" placeholder="Password" name="password">
-                            </div>
+                            </div> -->
                             <div class="ship_detail">
                                 <div class="form-group">
                                     <div class="chek-form">
@@ -166,23 +107,7 @@
                                 </div>
                                 <div id="collapseAddress" class="different_address collapse in">
                                     <div class="form-group">
-                                        <input type="text" required="" name="fname" placeholder="First name *">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" required="" name="lname" placeholder="Last name *">
-                                    </div>
-                                    <div class="form-group">
-                                        <input required="" type="text" name="cname" placeholder="Company Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="custom_select">
-                                            <select class="form-control select-active">
-                                                <option value="">Select an option...</option>
-                                                <option value="AX">Aland Islands</option>
-                                                <option value="AF">Afghanistan</option>
-
-                                            </select>
-                                        </div>
+                                        <input type="text" required="" name="fname" placeholder="Full Name *">
                                     </div>
                                     <div class="form-group">
                                         <input type="text" name="billing_address" required="" placeholder="Address *">
@@ -197,17 +122,15 @@
                                         <input required="" type="text" name="state" placeholder="State / County *">
                                     </div>
                                     <div class="form-group">
-                                        <input required="" type="text" name="zipcode" placeholder="Postcode / ZIP *">
+                                        <input required="" type="text" name="zipcode" placeholder="Postcode / ZIP *" pattern="[0-9]{5}">
                                     </div>
+                                    <div class="form-group">
+                                        <input required="" type="integer" name="phone" placeholder="Phone Number *">
+                                    </div>
+                                    <button type="submit">Update</button>
                                 </div>
                             </div>
-                            <div class="mb-20">
-                                <h5>Additional information</h5>
-                            </div>
-                            <div class="form-group mb-30">
-                                <textarea rows="5" placeholder="Order notes"></textarea>
-                            </div>
-                        </form> -->
+                        </form>
                     </div>
                     <div class="col-md-6">
                         <div class="order_review"> 
@@ -216,12 +139,6 @@
                             </div>
                             <div class="table-responsive order_table text-center">
                                 <table class="table">
-                                    <!-- <thead>
-                                        <tr>
-                                            <th colspan="2">Product</th>
-                                            <th>Total</th>
-                                        </tr>
-                                    </thead> -->
                                     <tbody>
                                     @foreach(Cart::content() as $item)
                                         <tr>
@@ -231,22 +148,9 @@
                                                 <h5><span>RM{{$item->model->oriPrice}}</span></h5>
                                                 <span class="product-qty">x{{$item->qty}}</span>
                                             </td>
-                                            <!-- <td class="price" data-title="Price"><span>RM{{$item->model->oriPrice}}</span></td> -->
                                         </tr>
-                                        <!-- <tr>
-                                            <th>SubTotal</th>
-                                            <td class="product-subtotal" colspan="2">RM {{Cart::subtotal()}}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Shipping</th>
-                                            <td colspan="2"><em>RM 5</em></td>
-                                        </tr>
-                                        <tr>
-                                            <th>Total</th>
-                                            <td colspan="2" class="product-subtotal"><span class="font-xl text-brand fw-900">RM {{Cart::subtotal()+ 5}}</span></td>
-                                        </tr> -->
                                     @endforeach
-                                    <tr>
+                                        <tr>
                                             <th>SubTotal</th>
                                             <td class="product-subtotal" colspan="2">RM {{Cart::subtotal()}}</td>
                                         </tr>
@@ -281,6 +185,8 @@
                             <button id="btn">Checkout</button>
                             <script src="http://js.stripe.com/v3/"></script>
                             <script src="script.js"></script>
+
+                            <!-- <button wire:click="saveOrder" class="btn btn-fill-out btn-block mt-30">Checkout</button> -->
                         </div>
                     </div>
                 </div>

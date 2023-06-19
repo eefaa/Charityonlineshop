@@ -38,8 +38,6 @@
                                         <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-')}}{{$item->id}}-1.jpeg" alt="#"></td>
                                         <td class="product-des product-name">
                                             <h5 class="product-name"><a href="product-details.html">{{$item->model->name}}</a></h5>
-                                            <!-- <p class="font-xs">Maboriosam in a tonto nesciung eget<br> distingy magndapibus.
-                                            </p> -->
                                         </td>
                                         <td class="price" data-title="Price"><span>RM{{$item->model->oriPrice}}</span></td>
                                         <td class="text-center" data-title="Stock">

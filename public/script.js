@@ -9,6 +9,6 @@ btn.addEventListener('click', ()=>{
         body: JSON.stringify({})
     }).then(res=> res.json())
     .then(payload => {
-        stripe.redirectToCheckout({sessionId: payload.id})
+        stripe.redirectToCheckout({sessionId:payload.id})
     })
 })

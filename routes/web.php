@@ -27,10 +27,15 @@ use App\Http\Livewire\Admin\AdminSubc;
 use App\Http\Livewire\Admin\AddSubc;
 use App\Http\Livewire\Admin\EditSubc;
 use App\Http\Livewire\DonatePage;
+use App\Http\Livewire\DonateBerjaya;
 use App\Http\Livewire\UserProfile;
 use App\Http\Livewire\PaymentPage;
+use App\Http\Livewire\PaymentBerjaya;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StripeController;
+use App\Http\Livewire\OrderHistory;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,9 +62,11 @@ Route::get('/books',bookPage::class)->name('product.book');
 Route::get('/product-category/{ctg}', Kategori::class)->name('product.category');
 Route::get('/search',SearchPage::class)->name('product.search');
 Route::get('/donate', DonatePage::class)->name('donate');
-Route::post('/donate', [DonatePage::class, 'storeDonate']);
+Route::get('/berjayadonate', DonateBerjaya::class)->name('donate.berjaya');
 Route::get('/payment', PaymentPage::class)->name('payment');
+Route::get('/paymentberjaya', PaymentBerjaya::class)->name('payment.berjaya');
 Route::get('/user/profile', UserProfile::class)->name('user.profile');
+Route::get('/order-history', OrderHistory::class)->name('orderHistory');
 
 
 //Controller for Stripe

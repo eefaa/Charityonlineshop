@@ -148,12 +148,13 @@
                                                 <li><a href="{{route('admin.products')}}">Products</a></li>
                                                 <li><a href="{{route('admin.categories')}}">Categories</a></li>
                                                 <li><a href="{{route('admin.subcategories')}}">Sub-categories</a></li>
+                                                <li><a href="{{route('admin.order')}}">Orders</a></li>
                                        
                                             </ul>
                                             @else
                                             <ul class="sub-menu">
                                                 <li><a href="{{route('user.profile')}}">My Account</a></li>
-                                                <!-- <li><a href="#">Order History</a></li>                                            -->
+                                                <li><a href="{{route('orderHistory')}}">Order History</a></li>                                           
                                             </ul>
                                             @endif
                                     </li>
@@ -300,11 +301,11 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="widget-about font-md mb-md-5 mb-lg-0">
-                        <div class="logo logo-width-1 wow fadeIn animated">
+                        <!-- <div class="logo logo-width-1 wow fadeIn animated">
                             <a href="index.html">
                                 <img src="assets/imgs/logo/CCIN-LOGO.jpg" alt="logo" class="smaller-logo">
                             </a>
-                        </div>
+                        </div> -->
                             <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
                             <p class="wow fadeIn animated">
                                 <strong>Address: </strong>UTM

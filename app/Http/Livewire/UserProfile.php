@@ -19,9 +19,12 @@ class UserProfile extends Component
     {
         // Fetch the current user's data
         $user = auth()->user();
-        $userData = User::select('name', 'email')->find($user->id);
+        $userData = User::select('name', 'email','phone','address')->find($user->id);
         $this->name = $userData->name;
         $this->email = $userData->email;
+        $this->phone = $userData->phoneNumber;
+        $this->address = $userData->adress; 
+       
 
     }
 

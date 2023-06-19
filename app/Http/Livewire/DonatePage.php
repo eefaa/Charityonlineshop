@@ -37,13 +37,14 @@ class DonatePage extends Component
             'email' => 'required' 
         ]);
 
-        $donate = new Donate();
-        $donate->amount = $this->amount;
-        $donate->name = $this->name;
-        $donate->phone = $this->phone;
-        $donate->email = $this->email;
-        $donate->save();
-        
+        Donate::create([
+            'amount' => $this->amount,
+            'name' => $this->name,
+            'phone' => $this->phone,
+            'email' => $this->email, 
+        ]);
+
+        $this->reset();
         session()->flash('message','Donate has been save successfully !');
         
     }

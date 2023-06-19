@@ -5,12 +5,14 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Cart;
 use App\Models\User;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 use Stripe\StripeClient;
 
 
     // require './vendor/autoload.php';
     header('Content-Type', 'application/json');
+        //private key
         $stripe = new StripeClient("sk_test_51NDTYII77OwsPp92HgyJpxku5KnJMvMdloXOxUkaT8NS1wuD7Btyuc4xZtqjY6oX6jB4Q3MDcQynBeN0oiQL449z00TpkEG3ih");
         $session = $stripe->checkout->sessions->create([
             "success_url" => "http://127.0.0.1:8000/success.html",
@@ -50,9 +52,13 @@ class CheckoutPage extends Component
     public $phone;
     public $address;
     public $state;
-    public $postalCode;
-    public $email;
+    public $postcode;
+    public $city;
     public $nameId;
+    public $product_name;
+    public $product_price;
+    public $quantity;
+    public $subtotal;
 
     public function mount()
     {
@@ -73,24 +79,35 @@ class CheckoutPage extends Component
             'phone' => 'required',
             'address' => 'required',
             'state' => 'required',
-            'postalCode' => 'required',
+            'postcode' => 'required',
+            'city' => 'required',
             
         ]);
-        $combinedAddress = $this->address . ', ' . $this->state . ', ' . $this->postalCode;
+
+        $combinedAddress = $this->address . ', ' . $this->city . ', ' . $this->state . ',' . $this->postcode;
         // Update the user's profile
         $user = auth()->user();
         $user = new User();
         $user->name = $this->name;    
-        $user->phone = $this->phoneNumber;
-        $user->email = $this->email;
         $user->address = $this->combinedAddres;
+        $user->phone = $this->phoneNumber;
         $user->save();
+    }
+
+    public function saveOrder()
+    {
+        $order = auth()->user();
+        $order= new Order();
+        $order->product_name = $this -> product_name;
+        $order->product_price=$this -> product_price;
+        $order->quantity = $this -> quantity;
+        $order->subtotal = $this-> subtotal;
+       
     }
 
     public function render()
     {
 
-       
         return view('livewire.checkout-page');
     }  
 }

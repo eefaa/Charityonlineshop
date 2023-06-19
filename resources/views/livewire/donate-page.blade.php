@@ -6,37 +6,34 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                        <form wire:submit="storeDonate" action="{{ route('donate') }}" method="POST">
-                                @csrf
+                        <form wire:submit.prevent="storeDonate">
+                            @csrf
                                 <div class="form-group">
-                                    <label for="amount">Donation Amount</label>
-                                    <input wire:model="amount" type="decimal" class="form-control" id="amount" name="amount" placeholder="ex: 10" required>
+                                    <input wire:model="amount" type="decimal" class="form-control" id="amount" name="amount" placeholder="Amount*" required>
+                                    
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input wire:model="name" type="text" class="form-control" id="name" name="name" placeholder="ex: John Sinar" required>
+                                    <input wire:model="name" type="text" class="form-control" id="name" name="name" placeholder="Full Name*" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="phone">Phone Number</label>
-                                    <input wire:model="phone" type="tel" class="form-control" id="phone" name="phone" placeholder="ex: +60123456789" required>
+                                    <input wire:model="phone" type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number*" required>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input wire:model="email" type="email" class="form-control" id="email" name="email" placeholder="ex: user@user.com" required>
+                                    <input wire:model="email" type="email" class="form-control" id="email" name="email" placeholder="Email*" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="payment_method">Payment Method</label>
                                     <select class="form-control" id="payment_method" name="payment_method">
-                                        <option value="paypal">Stripe</option>
+                                        <option value="stripe">Debit/Credit card</option>
                                     </select>
                                 </div>
-
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Donate Now</button>
+                                    <li><a href="{{route('donate.berjaya')}}">Orders</a></li>
                                 </div>
                             </form>
                         </div>
