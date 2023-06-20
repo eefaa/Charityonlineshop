@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\Donate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class DonatePage extends Component
 {
@@ -28,9 +29,10 @@ class DonatePage extends Component
     }
     
 
-    public function storeDonate()
+    public function storeDonate(Request $request)
     {
-        $this->validate([
+
+        $request->validate([
             'amount' => 'required',
             'name' => 'required',
             'phone' => 'required',
@@ -38,14 +40,16 @@ class DonatePage extends Component
         ]);
 
         Donate::create([
-            'amount' => $this->amount,
-            'name' => $this->name,
-            'phone' => $this->phone,
-            'email' => $this->email, 
+            'amount' => $request->amount,
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email, 
         ]);
 
-        $this->reset();
+        // $this->reset();
         session()->flash('message','Donate has been save successfully !');
+
+        return redirect()->back();
         
     }
 

@@ -6,7 +6,10 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                        <form wire:submit.prevent="storeDonate">
+                        @if(Session::has('message'))
+                                    <div class="alert alert-success" role="alert">{{Session::get('message')}} </div>
+                        @endif
+                        <form method="post" action="{{ route('donate.store') }}">
                             @csrf
                                 <div class="form-group">
                                     <input wire:model="amount" type="decimal" class="form-control" id="amount" name="amount" placeholder="Amount*" required>

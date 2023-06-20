@@ -62,6 +62,8 @@ Route::get('/books',bookPage::class)->name('product.book');
 Route::get('/product-category/{ctg}', Kategori::class)->name('product.category');
 Route::get('/search',SearchPage::class)->name('product.search');
 Route::get('/donate', DonatePage::class)->name('donate');
+Route::post('/donate', [DonatePage::class, 'storeDonate'])->name('donate.store');
+
 Route::get('/berjayadonate', DonateBerjaya::class)->name('donate.berjaya');
 Route::get('/payment', PaymentPage::class)->name('payment');
 Route::get('/paymentberjaya', PaymentBerjaya::class)->name('payment.berjaya');

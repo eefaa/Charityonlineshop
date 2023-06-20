@@ -25,7 +25,7 @@
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        Add Category
+                                        Edit Product
                                     </div>
                                     <div class="col-md-6"> 
                                         <a href="{{route('admin.products')}}" class="btn btn-success float-end">All Products</a> 
@@ -36,45 +36,33 @@
                                 @if(Session::has('message'))
                                     <div class="alert alert-success" role="alert">{{Session::get('message')}} </div>
                                 @endif
-                                <form wire:submit.prevent="addP">
+                                <form method="post" action="{{ route('edit.product') }}">
+                                @csrf
                                     <div class="mb-3 mt-3">
                                         <label for="name" class="form-label">Name</label>
                                         <input type="text" name="name" class="form-control" placeholder="Enter product name" wire:model="name" wire:keyup="name"/>
-                                        @error('name')
-                                            <p class="text-danger">{{$message}}</p>
-                                        @enderror
                                     </div>
 
                                     <div class="mb-3 mt-3">
                                         <label for="ctg" class="form-label">Slug</label>
                                         <input type="text" name="ctg" class="form-control" placeholder="Enter product slug" wire:model="ctg" />
-                                        @error('ctg')
-                                            <p class="text-danger">{{message}}</p>
-                                        @enderror
                                     </div>
 
                                     <div class="mb-3 mt-3">
                                         <label for="shortDesc" class="form-label">Short Description</label>
                                         <textarea type="text" name="shortDesc" class="form-control" placeholder="Enter short description" wire:model="shortDesc" ></textarea>
-                                        @error('shortDesc')
-                                            <p class="text-danger">{{message}}</p>
-                                        @enderror
                                     </div>
 
                                     <div class="mb-3 mt-3">
                                         <label for="description" class="form-label">Description</label>
                                         <textarea type="text" name="description" class="form-control" placeholder="Enter Description" wire:model="description" ></textarea>
-                                        @error('description')
-                                            <p class="text-danger">{{message}}</p>
-                                        @enderror
+                                     
                                     </div>
 
                                     <div class="mb-3 mt-3">
                                         <label for="oriPrice" class="form-label">Price</label>
                                         <input type="text" name="oriPrice" class="form-control" placeholder="Enter Price" wire:model="oriPrice" />
-                                        @error('oriPrice')
-                                            <p class="text-danger">{{message}}</p>
-                                        @enderror
+                                      
                                     </div>
 
                                     <div class="mb-3 mt-3">
@@ -83,17 +71,13 @@
                                             <option value="instock">InStock</option>
                                             <option value="outofstock">Out of Stock</option>
                                         </select>
-                                        @error('stockStatus')
-                                            <p class="text-danger">{{message}}</p>
-                                        @enderror
+                                       
                                     </div>
 
                                     <div class="mb-3 mt-3">
                                         <label for="quantity" class="form-label">Quantity</label>
-                                        <input type="text" name="quantity" class="form-control" placeholder="Enter category slug" wire:model="quantity" />
-                                        @error('quantity')
-                                            <p class="text-danger">{{message}}</p>
-                                        @enderror
+                                        <input type="text" name="quantity" class="form-control" placeholder="Enter quantity" wire:model="quantity" />
+                                    
                                     </div>
 
                                     <div class="mb-3 mt-3">
@@ -107,9 +91,7 @@
                                             <img src="{{asset('asset/imgs/products')}}/{{$image}}" width="120" />
                                         }
                                         @endif
-                                        @error('newimg')
-                                            <p class="text-danger">{{message}}</p>
-                                        @enderror
+                                     
                                     </div>
 
                                     <div class="mb-3 mt-3">
@@ -120,9 +102,7 @@
                                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                             @endforeach 
                                         </select>
-                                        @error('ctgId')
-                                            <p class="text-danger">{{message}}</p>
-                                        @enderror
+                                     
                                     </div>
 
 

@@ -59,6 +59,7 @@
                                 <form method="POST" action="{{route('logout')}}">
                                     @csrf
                                     <a href="{{route('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();"> Logout </a> 
+                                </form>
                                 </li>
                             </ul>
                             @else
@@ -77,7 +78,7 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="/"><img src="assets/imgs/logo/CCIN-LOGO.jpg" alt="logo"></a>
+                     <a href="/"><img src="/assets/imgs/logo/CCIN-LOGO.jpg" alt="logo"></a>
                     </div>
                     <div class="header-right">
                         @livewire('search-header')  
@@ -240,6 +241,7 @@
                                 <form method="POST" action="{{route('logout')}}">
                                     @csrf
                                     <a href="{{route('logout')}}" onclick="event.preventDefault(); this.closest('form').submit();"> Logout </a> 
+                                </form>
                                 </li>
                             </ul>
                             @else
