@@ -30,6 +30,7 @@ use App\Http\Livewire\DonatePage;
 use App\Http\Livewire\DonateBerjaya;
 use App\Http\Livewire\UserProfile;
 use App\Http\Livewire\PaymentPage;
+use App\Http\Livewire\PaymentBerjaya;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StripeController;
 use App\Http\Livewire\OrderHistory;
@@ -55,6 +56,7 @@ Route::get('/cart',cartPage::class)->name('product.cart');  //shop.cart
 Route::get('/checkout',checkoutPage::class)->name('product.checkout');
 Route::get('/product/{ctg}',productDetailsPage::class)->name('product.details');
 Route::get('/menlothing',menPage::class)->name('product.men'); 
+// Route::get('/womenclothing/{ctg}',womenPage::class)->name('product.women'); 
 Route::get('/home&garden',gardenPage::class)->name('product.garden'); 
 Route::get('/books',bookPage::class)->name('product.book'); 
 Route::get('/product-category/{ctg}', Kategori::class)->name('product.category');
@@ -62,6 +64,7 @@ Route::get('/search',SearchPage::class)->name('product.search');
 Route::get('/donate', DonatePage::class)->name('donate');
 Route::get('/berjayadonate', DonateBerjaya::class)->name('donate.berjaya');
 Route::get('/payment', PaymentPage::class)->name('payment');
+Route::get('/paymentberjaya', PaymentBerjaya::class)->name('payment.berjaya');
 Route::get('/user/profile', UserProfile::class)->name('user.profile');
 Route::get('/order-history', OrderHistory::class)->name('orderHistory');
 

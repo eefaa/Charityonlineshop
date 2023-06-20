@@ -7,8 +7,10 @@
                     <div class="card">
                         <div class="card-body">
                         <form wire:submit.prevent="storeDonate">
+                            @csrf
                                 <div class="form-group">
-                                    <input wire:model="amount" type="decimal" class="form-control" id="amount" name="amount" placeholder="Amount*" required>  
+                                    <input wire:model="amount" type="decimal" class="form-control" id="amount" name="amount" placeholder="Amount*" required>
+                                    
                                 </div>
 
                                 <div class="form-group">
