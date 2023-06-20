@@ -113,14 +113,7 @@
                                 @foreach ($categories as $category)
                                 <li><a href="{{route('product.category',['ctg'=>$category->ctg])}}">{{$category->name}}</a></li>
                                 @endforeach
-                                <!-- <li><a href="shop.html">Blouses & Shirts</a></li>
-                                <li><a href="shop.html">Dresses</a></li>
-                                <li><a href="shop.html">Swimwear</a></li>
-                                <li><a href="shop.html">Beauty</a></li>
-                                <li><a href="shop.html">Jewelry & Watch</a></li>
-                                <li><a href="shop.html">Accessories</a></li> -->
                             </ul>
-                        </div>
                         </div>
                     </div>
                 </div>

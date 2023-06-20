@@ -196,35 +196,35 @@
                             <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop.html">shop</a>
                                 <ul class="dropdown">
                                     <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Men Clothing</a>
-                                        <ul class="dropdown">
+                                        <!-- <ul class="dropdown">
                                             <li><a href="#">Top</a></li>
                                             <li><a href="#">Pants</a></li>
                                             <li><a href="#">Accessories</a></li>
                                             <li><a href="#">Shoes</a></li>
                                             <li><a href="#">Bags</a></li>   
-                                        </ul>
+                                        </ul> -->
                                     </li>
                                     <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women Clothing</a>
-                                        <ul class="dropdown">
+                                        <!-- <ul class="dropdown">
                                             <li><a href="#">Top</a></li>
                                             <li><a href="#">Pants</a></li>
                                             <li><a href="#">Accessories</a></li>
                                             <li><a href="#">Shoes</a></li>
                                             <li><a href="#">Bags</a></li> 
-                                        </ul>  
+                                        </ul>   -->
                                     
                                     <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Home & Garden</a>
-                                        <ul class="dropdown">
+                                        <!-- <ul class="dropdown">
                                             <li><a href="#">Tables</a></li>
                                             <li><a href="#">Chair</a></li>
                                             <li><a href="#">Garden</a></li> 
-                                        </ul>
+                                        </ul> -->
                                     </li>
                                     <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Books</a>
-                                        <ul class="dropdown">
+                                        <!-- <ul class="dropdown">
                                             <li><a href="#">Fiction</a></li>
                                             <li><a href="#">Non-Fiction</a></li> >
-                                        </ul>
+                                        </ul> -->
                                     </li>
                                 </ul>
                             </li>
@@ -256,14 +256,6 @@
                     <!-- <div class="single-mobile-header-info">
                         <a href="#">(+1) 0000-000-000 </a>
                     </div> -->
-                </div>
-                <div class="mobile-social-icon">
-                    <h5 class="mb-15 text-grey-4">Follow Us</h5>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
                 </div>
             </div>
         </div>
