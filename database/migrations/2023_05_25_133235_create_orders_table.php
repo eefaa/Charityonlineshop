@@ -21,7 +21,6 @@ return new class extends Migration
             $table->decimal('product_price', 8, 2);
             $table->decimal('subtotal', 8, 2);
             $table->enum('status',['To Ship','To Receive, Completed']);
-            $table->string('status');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

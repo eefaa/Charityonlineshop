@@ -97,7 +97,7 @@
                                             </div>
                                             <div class="product-action-1 show">
                                                 <a aria-label="Add To Cart" class="action-btn hover-up"
-                                                    wire:click.prevent="store({{ $product->id }},'{{ $product->name }}',{{ $product->oriPrice }})"><i
+                                                    wire:click="store({{ $product->id }},'{{ $product->name }}',{{ $product->oriPrice }})"><i
                                                         class="fi-rs-shopping-bag-add"></i></a>
 
                                             </div>
