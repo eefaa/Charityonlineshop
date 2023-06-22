@@ -32,10 +32,10 @@ class EditProduct extends Component
         $this->ctg = $product->ctg;
         $this->shortDesc= $product->shortDesc;
         $this->description = $product->description;
-        $this->oriPrice= $product->ctg;
-        $this->stockStatus = $product->oriPrice;
+        $this->oriPrice= $product->oriPrice;
+        $this->stockStatus = $product->stockStatus;
         $this->quantity= $product->quantity;
-        $this->image= $product->image;
+        $this->newimg= $product->newimg;
         $this->ctgId= $product->ctgId;
     }
     
@@ -49,7 +49,6 @@ class EditProduct extends Component
             'oriPrice' => 'required',
             'stockStatus' => 'required',
             'quantity' => 'required',
-            'image' => 'required',
             'ctgId' => 'required',
         ]);
 
@@ -65,8 +64,8 @@ class EditProduct extends Component
         {
             unlink('assets/imgs/products/'.$product->image);
             $imgName = Carbon::now()->timestamp.'.'.$this->newimg->extension();
-            $this->image->storeAs('products',$imgName);
-            $product->image = $this->imgName; 
+            $this->newimg->storeAs('products',$imgName);
+            $product->img = $this->imgName; 
         }
 
         $product->ctgId = $this->ctgId;

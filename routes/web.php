@@ -66,7 +66,7 @@ Route::post('/donate', [DonatePage::class, 'storeDonate'])->name('donate.store')
 
 Route::get('/berjayadonate', DonateBerjaya::class)->name('donate.berjaya');
 Route::get('/payment', PaymentPage::class)->name('payment');
-Route::get('/paymentberjaya', PaymentBerjaya::class)->name('payment.berjaya');
+Route::get('/paymentberjaya/{order_id}', PaymentBerjaya::class)->name('payment.berjaya');
 Route::get('/user/profile', UserProfile::class)->name('user.profile');
 Route::get('/order-history', OrderHistory::class)->name('orderHistory');
 
@@ -78,7 +78,6 @@ Route::post('/create-checkout-session', [StripeController::class, 'createCheckou
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/user/dashboard',UserDashboardPage::class)->name('user.dashboard');
-    Route::get('/search',SearchPage::class)->name('product.search');
     
     
 });
@@ -92,10 +91,11 @@ Route::middleware(['auth','authadmin'])->group(function(){
     Route::get('/admin/edit-subcategory/{subcId}',EditSubc::class)->name('admin.subcategory.edit');
     Route::get('/admin/products',AdminProduct::class)->name('admin.products');
     Route::get('/admin/product/add',AddProduct::class)->name('admin.product.add');
-    Route::get('/admin/product/edit{productId}',EditProduct::class)->name('admin.product.edit');
+    Route::get('/admin/product/edit/{productId}',EditProduct::class)->name('admin.product.edit');
+    // Route::put('/admin/product/update/{productId}',EditProduct::class)->name('admin.product.update');
+
     Route::get('/admin/order',AdminOrder::class)->name('admin.order');
     Route::get('/admin/edit-order{orderId}',EditOrder::class)->name('admin.order.edit');
-    Route::get('/search',SearchPage::class)->name('product.search');
 
     
 });

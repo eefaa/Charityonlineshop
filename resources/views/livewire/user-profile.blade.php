@@ -1,12 +1,12 @@
 <div>
     <div main class="main">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-3">
                 <div class="col-lg-6">
                     <h1>User Profile</h1>
 
-                    @if (session()->has('message'))
-                        <div class="alert alert-success">{{ session('message') }}</div>
+                    @if(Session::has('message'))
+                      <div class="alert alert-success" role="alert">{{Session::get('message')}} </div>
                     @endif
 
                     <form wire:submit.prevent="updateProfile">
@@ -25,7 +25,7 @@
 
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input wire:model="phoneNumber" type="text" class="form-control" id="phoneNumber">
+                            <input wire:model="phone" type="text" class="form-control" id="phoneNumber">
                             @error('phone') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         <div class="form-group">

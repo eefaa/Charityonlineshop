@@ -64,10 +64,10 @@
                                             <td>{{$order->quantity}}</td>
                                             <td>{{$order->subtotal}}</td>
                                             <td>
-                                                <select wire:model="status" wire:change="updateStatus({{ $order->id }})">
-                                                    <option value="ship" @if($order->status == 'To_Ship') selected @endif>To Ship</option>
-                                                    <option value="receive" @if($order->status == 'To_Receive') selected @endif> To Receive</option>
-                                                    <option value="completed" @if($order->status == 'Completed') selected @endif>Completed</option>
+                                                <select wire:change="updateStatus({{ $order->id }} , $event.target.value)">
+                                                    <option value="To Ship" @if($order->status == 'To Ship') selected @endif>To Ship</option>
+                                                    <option value="To Receive" @if($order->status == 'To Receive') selected @endif> To Receive</option>
+                                                    <option value="Completed" @if($order->status == 'Completed') selected @endif>Completed</option>
                                                 </select>
                                             </td>
 

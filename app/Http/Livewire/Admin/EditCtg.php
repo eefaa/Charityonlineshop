@@ -13,18 +13,18 @@ class EditCtg extends Component
     public $name;
     public $ctg;
 
-    // public function updateCtg()
-    // {
-    //     $this->validate([
-    //         'name' => 'required',
-    //         'ctg' => 'required'
-    //     ]);
-    //     $category = Category::find($this->ctgId);
-    //     $category->name = $this->name;
-    //     $category->ctg = $this->ctg;
-    //     $category->save();
-    //     session()->flash('message','Category has been updated successfully !');
-    // }
+    public function updateCtg()
+    {
+        $this->validate([
+            'name' => 'required',
+            'ctg' => 'required'
+        ]);
+        $category = Category::find($this->ctgId);
+        $category->name = $this->name;
+        $category->ctg = $this->ctg;
+        $category->save();
+        session()->flash('message','Category has been updated successfully !');
+    }
     
     public function update($usrinputs)
     {

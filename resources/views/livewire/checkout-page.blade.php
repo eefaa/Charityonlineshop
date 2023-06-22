@@ -107,25 +107,25 @@
                                 </div>
                                 <div id="collapseAddress" class="different_address collapse in">
                                     <div class="form-group">
-                                        <input type="text" required="" name="fname" placeholder="Full Name *">
+                                        <input type="text" required="" name="fname" placeholder="Full Name *" wire:model="n_name">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="billing_address" required="" placeholder="Address *">
+                                        <input type="text" name="billing_address" required="" placeholder="Address *" wire:model="n_address">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="billing_address2" required="" placeholder="Address line2">
+                                        <input type="text" name="billing_address2" required="" placeholder="Address line2" wire:model="n_address2">
                                     </div>
                                     <div class="form-group">
-                                        <input required="" type="text" name="city" placeholder="City / Town *">
+                                        <input required="" type="text" name="city" placeholder="City / Town *" wire:model="n_address">
                                     </div>
                                     <div class="form-group">
-                                        <input required="" type="text" name="state" placeholder="State / County *">
+                                        <input required="" type="text" name="state" placeholder="State / County *" wire:model="n_state">
                                     </div>
                                     <div class="form-group">
-                                        <input required="" type="text" name="zipcode" placeholder="Postcode / ZIP *" pattern="[0-9]{5}">
+                                        <input required="" type="text" name="zipcode" placeholder="Postcode / ZIP *" pattern="[0-9]{5}" wire:model="n_zipcode">
                                     </div>
                                     <div class="form-group">
-                                        <input required="" type="integer" name="phone" placeholder="Phone Number *">
+                                        <input required="" type="integer" name="phone" placeholder="Phone Number *" wire:model="n_phone">
                                     </div>
                                     <button type="submit">Update</button>
                                 </div>
@@ -182,7 +182,7 @@
                                 </div>
                             </div>
                             <!-- <button type="submit" class="btn btn-fill-out btn-block mt-30">Place Order</button>    -->
-                            <button id="btn">Checkout</button>
+                            <button wire:click="saveOrder" class="btn btn-fill-out btn-block mt-30">Checkout</button>
                             <script src="http://js.stripe.com/v3/"></script>
                             <script src="script.js"></script>
 

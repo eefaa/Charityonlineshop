@@ -13,10 +13,10 @@ class AdminOrder extends Component
     public $orderId;
     public $status;
 
-    public function updateStatus($orderId)
+    public function updateStatus($orderId, $evt_status)
     {
         $order = Order::findOrFail($orderId);
-        $order->status = $this->status;
+        $order->status = $evt_status;
         $order->save();
     }
 

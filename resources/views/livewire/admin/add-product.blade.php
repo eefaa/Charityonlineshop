@@ -39,7 +39,7 @@
                                 <form wire:submit.prevent="addP">
                                     <div class="mb-3 mt-3">
                                         <label for="name" class="form-label">Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Enter product name" wire:model="name" wire:keyup="name"/>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter product name" wire:model="name"/>
                                         @error('name')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -49,7 +49,7 @@
                                         <label for="ctg" class="form-label">Slug</label>
                                         <input type="text" name="ctg" class="form-control" placeholder="Enter product slug" wire:model="ctg" />
                                         @error('ctg')
-                                            <p class="text-danger">{{message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
 
@@ -57,7 +57,7 @@
                                         <label for="shortDesc" class="form-label">Short Description</label>
                                         <textarea type="text" name="shortDesc" class="form-control" placeholder="Enter short description" wire:model="shortDesc" ></textarea>
                                         @error('shortDesc')
-                                            <p class="text-danger">{{message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
 
@@ -65,7 +65,7 @@
                                         <label for="description" class="form-label">Description</label>
                                         <textarea type="text" name="description" class="form-control" placeholder="Enter Description" wire:model="description" ></textarea>
                                         @error('description')
-                                            <p class="text-danger">{{message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
 
@@ -73,7 +73,7 @@
                                         <label for="oriPrice" class="form-label">Price</label>
                                         <input type="text" name="oriPrice" class="form-control" placeholder="Enter Price" wire:model="oriPrice" />
                                         @error('oriPrice')
-                                            <p class="text-danger">{{message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
 
@@ -84,40 +84,40 @@
                                             <option value="outofstock">Out of Stock</option>
                                         </select>
                                         @error('stockStatus')
-                                            <p class="text-danger">{{message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="quantity" class="form-label">Quantity</label>
                                         <input type="text" name="quantity" class="form-control" placeholder="Enter category slug" wire:model="quantity" />
                                         @error('quantity')
-                                            <p class="text-danger">{{message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
 
                                     <div class="mb-3 mt-3">
-                                        <label for="image" class="form-label" wire:model="image">Image</label>
-                                        <input type="file" name="image"class=" form-control" />
+                                        <label for="image" class="form-label">Image</label>
+                                        <input type="file" name="image"class=" form-control" wire:model="image" />
                                         @if($image)
-                                        {
+                                        
                                             <img src="{{$image->temporaryUrl()}}" width="120" />
-                                        }
+                                        
                                         @endif
                                         @error('image')
-                                            <p class="text-danger">{{message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
 
                                     <div class="mb-3 mt-3">
                                         <label for="ctgId" class="form-label">Category</label>
-                                        <select class="form-control" name="ctgId">
+                                        <select class="form-control" name="ctgId" wire:model="ctgId">
                                             <option value="">Select Category</option>  
                                             @foreach($categories as $category)
                                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                             @endforeach 
                                         </select>
                                         @error('ctgId')
-                                            <p class="text-danger">{{message}}</p>
+                                            <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
 

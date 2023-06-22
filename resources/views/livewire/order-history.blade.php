@@ -15,9 +15,10 @@
                     <thead>
                         <tr>
                             <th>Order ID</th>
-                            <th>Product Name</th>
-                            <th>Product Price</th>
+                            <th>Product</th>
                             <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Amount</th>
                             <th>Subtotal</th>
                             <th>Address</th>
                             <!-- Add more columns as needed -->
@@ -27,11 +28,36 @@
                         @foreach ($orders as $order)
                             <tr>
                                 <td>{{ $order->id }}</td>
-                                <td>{{ $order->product_name }}</td>
-                                <td>{{ $order->product_price }}</td>
-                                <td>{{ $order->quantity }}</td>
-                                <td>{{ $order->subtotal }}</td>
-                                <td>{{ $order->address }}</td>
+                                <td>
+                                    <ul>
+                                        @foreach($order->order_items as $item)
+                                        <li>{{ $item->product->name }}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                            @foreach($order->order_items as $item)
+                                            <li>x{{ $item->quantity}}</li>
+                                            @endforeach
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                            @foreach($order->order_items as $item)
+                                            <li>RM{{ number_format($item->product->oriPrice, 2)  }}</li>
+                                            @endforeach
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                            @foreach($order->order_items as $item)
+                                            <li>RM{{ number_format($item->product->oriPrice * $item->quantity, 2)  }}</li>
+                                            @endforeach
+                                    </ul>
+                                </td>
+                                <td>RM{{ $order->subtotal }}</td>
+                                <td>{{ $order->user->address }}</td>
                                 
                                 <!-- Display more data as needed -->
                             </tr>

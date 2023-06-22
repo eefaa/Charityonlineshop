@@ -44,11 +44,17 @@ class AddProduct extends Component
         $product->oriPrice = $this->oriPrice;
         $product->stockStatus = $this->stockStatus;
         $product->quantity = $this->quantity;
-        $imgName = Carbon::now()->timestamp.'.'.$this->image->extension();
-        $this->image->storeAs('products',$imgName);
-        $product->image = $this->imgName;
+        // $imgName = Carbon::now()->timestamp.'.'.$this->image->extension();
+        $product->img = '';
         $product->ctgId = $this->ctgId;
         $product->save();
+
+        $imgName = "product-" . $product->id . "-1" . '.' . $this->image->extension();
+        $product->img = $imgName;
+        $this->image->storeAs('shop',$imgName);
+        $product->save();
+
+
         session()->flash('message','Product has been added !');
     }
 

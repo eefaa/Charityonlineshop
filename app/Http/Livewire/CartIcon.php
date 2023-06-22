@@ -8,7 +8,7 @@ use App\Models\Category;
 
 class CartIcon extends Component
 {
-    protected $panggil = ['refreshPage'=>'$refresh'];
+    protected $listeners = ['refreshPage'=>'$refresh'];
     public function render()
     {
         return view('livewire.cart-icon');

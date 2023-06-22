@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class UserProfile extends Component
 {
     public $name;
-    public $phoneNumber;
+    public $phone;
     public $address;
     public $email;
     public $nameId;
@@ -22,8 +22,8 @@ class UserProfile extends Component
         $userData = User::select('name', 'email','phone','address')->find($user->id);
         $this->name = $userData->name;
         $this->email = $userData->email;
-        $this->phone = $userData->phoneNumber;
-        $this->address = $userData->adress; 
+        $this->phone = $userData->phone;
+        $this->address = $userData->address; 
        
 
     }
@@ -34,7 +34,7 @@ class UserProfile extends Component
         $this->validate([
             'name' => 'required|string',
             'email' => 'required|string',
-            'phoneNumber' => 'required',
+            'phone' => 'required',
             'address' => 'required',
             
         ]);
@@ -44,13 +44,13 @@ class UserProfile extends Component
         // $user = new User();
         $user->name = $this->name;    
         $user->email = $this->email;
-        $user->phone = $this->phoneNumber;
+        $user->phone = $this->phone;
         $user->address = $this->address;
         $user->save();
         
-        Auth::guard('web')->refresh();
+        // Auth::guard('web')->refresh();
 
-        session()->flash('success', 'Profile updated successfully!');
+        session()->flash('message', 'Profile updated successfully!');
     }
 
     public function render()

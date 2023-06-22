@@ -12,7 +12,7 @@ class EditSubc extends Component
     public $name;
     public $subc;
 
-    public function update($usrinputs)
+    public function updateCtg($usrinputs)
     {
         $this->validateOnly($usrinputs,[
            'name'=>'required'

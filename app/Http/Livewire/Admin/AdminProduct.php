@@ -15,7 +15,9 @@ class AdminProduct extends Component
     public function deleteP()
     {
         $product = Product::find($this->productId);
-        unlink('asset/imgs/products/'.$product->image);
+        if (file_exists('asset/imgs/products/'.$product->img)) {
+            unlink('asset/imgs/products/'.$product->img);
+        }
         $product->delete();
         session()->flash('message','Product has been deleted !');
     }

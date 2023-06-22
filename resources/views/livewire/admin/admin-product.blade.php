@@ -57,14 +57,25 @@
                                     @foreach($products as $product)
                                         <tr>
                                             <td>{{++$i}}</td>
-                                            <td><img src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpeg"  alt="{{$product->name}}" width="60"/></td>
+                                            @php
+                                            
+
+                                                if($product->img == null){
+                                                    $img_source = asset('assets/imgs/shop/product-') . $product->id . '-1.jpeg';
+
+                                                }else
+                                                 $img_source = asset('assets/imgs/shop') . "/" . $product->img;
+
+                                            @endphp
+                                            <td><img src="{{ $img_source }}"  alt="{{$product->name}}" width="60"/></td>
+                                            <!-- <td><img src="{{asset('assets/imgs/products/') . '/' . $product->img}}"  alt="{{$product->name}}" width="60"/></td> -->
                                             <td>{{$product->name}}</td>
                                             <td>{{$product->oriPrice}}</td>
                                             <td>{{ optional($product->category)->name }}</td>
                                             <td>{{$product->stockStatus}}</td>
                                             <td>{{$product->created_at}}</td>
                                             <td> 
-                                                <a href="{{ route('admin.product.edit', ['productId' => $product->id]) }}" class="text-info">Edit</a>
+                                                <a href="{{ route('admin.product.edit', [$product->id]) }}" class="text-info">Edit</a>
                                                 <a href="#" onclick="deleteDialog({{$product->id}})" style="margin-left:20px;" class="text-danger">Delete </a>
                                             </td>
                                         </tr>
