@@ -12,12 +12,32 @@ class AdminOrder extends Component
     use WithPagination;
     public $orderId;
     public $status;
+    public $tracking_no;
 
     public function updateStatus($orderId, $evt_status)
     {
         $order = Order::findOrFail($orderId);
         $order->status = $evt_status;
         $order->save();
+    }
+
+    public function updatetracking()
+    {
+        $this->validate([
+            'tracking_no' => 'required'
+            
+        ]);
+        
+        $order = Order::find($this->orderId);
+        if ($order) {
+            $order->tracking_no = $this->tracking_no;
+            $order->save();
+           
+        } else {
+            session()->flash('error', 'Order not found. Unable to update tracking number.');
+            
+        }
+        
     }
 
     public function render()

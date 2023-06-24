@@ -7,7 +7,7 @@
                     <div class="card">
                         <div class="card-body">
                         @if(Session::has('message'))
-                                    <div class="alert alert-success" role="alert">{{Session::get('message')}} </div>
+                            <div class="alert alert-success" role="alert">{{Session::get('message')}} </div>
                         @endif
                         <form method="post" action="{{ route('donate.store') }}">
                             @csrf
@@ -21,7 +21,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input wire:model="phone" type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number*" required>
+                                    <input wire:model="phone" type="tel" class="form-control" id="phone" name="phone" placeholder="Phone Number*" pattern="[0-9]{10}" required >
                                 </div>
 
                                 <div class="form-group">
@@ -29,14 +29,13 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="payment_method">Payment Method</label>
                                     <select class="form-control" id="payment_method" name="payment_method">
                                         <option value="stripe">Debit/Credit card</option>
                                     </select>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary">Donate Now</button>
-                                    <li><a href="{{route('donate.berjaya')}}">Orders</a></li>
+                                    <!-- <li><a href="{{route('donate.berjaya')}}">Orders</a></li> -->
                                 </div>
                             </form>
                         </div>

@@ -148,7 +148,6 @@
                                                 <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                                 <li><a href="{{route('admin.products')}}">Products</a></li>
                                                 <li><a href="{{route('admin.categories')}}">Categories</a></li>
-                                                <li><a href="{{route('admin.subcategories')}}">Sub-categories</a></li>
                                                 <li><a href="{{route('admin.order')}}">Orders</a></li>
                                        
                                             </ul>

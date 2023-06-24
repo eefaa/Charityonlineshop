@@ -14,7 +14,8 @@ class Order extends Model
         'product_name',
         'product_price',
         'quantity',
-        'subtotal'
+        'subtotal',
+        'tracking_no'
     ];
 
     public function order_items(){

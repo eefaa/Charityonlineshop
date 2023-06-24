@@ -29,7 +29,8 @@
                                                 <input type="text" required="" name="email" placeholder="Email"  :value="old('email')" required >
                                             </div>
                                             <div class="form-group">
-                                                <input required="" type="password" name="password" placeholder="Password" required autocomplete="new-password">
+                                                <!-- <input required="" type="password" name="password" placeholder="Password" required autocomplete="new-password"> -->
+                                                <input required type="password" name="password" placeholder="Password" required autocomplete="new-password" >
                                             </div>
                                             <div class="form-group">
                                                 <input required="" type="password" name="password_confirmation" placeholder="Confirm password" required autocomplete="new-password">

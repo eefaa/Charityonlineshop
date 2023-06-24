@@ -11,12 +11,6 @@
         <section class="mt-50 mb-50">
             <div class="container">
                 <div class = "row">
-                    <!-- <div class = "col-md-3">
-                        <div class ="card card-body bg-primary text-white mb-3">
-                            <lable>Total User</lable>
-                            <h1>{{$totalUser}}</h1>
-                        </div>
-                    </div> -->
                     <div class = "col-md-3">
                         <div class ="card card-body bg-success text-white mb-3">
                             <lable>Today Sales</lable>
@@ -89,7 +83,7 @@
                                     <tr>
                                         <th>Order Id</th>
                                         <th>User Id</th>
-                                        <th>Amount</th>
+                                        <th>Subtotal</th>
                                         <th>Status</th>
                                         
                                     </tr>
@@ -101,7 +95,7 @@
                                       <tr>
                                         <td>{{$order->id}}</</td>
                                         <td>{{$order->user_id}}</</td>
-                                        <td>{{$order->amount}}</</td>
+                                        <td>{{$order->subtotal}}</</td>
                                         <td>{{$order->status}}</</td>
                                      
                                     </tr>

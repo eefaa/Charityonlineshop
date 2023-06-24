@@ -89,7 +89,7 @@
                                     </div>
                                     <div class="mb-3 mt-3">
                                         <label for="quantity" class="form-label">Quantity</label>
-                                        <input type="text" name="quantity" class="form-control" placeholder="Enter category slug" wire:model="quantity" />
+                                        <input type="text" name="quantity" class="form-control" placeholder="Enter quantity" wire:model="quantity" />
                                         @error('quantity')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror

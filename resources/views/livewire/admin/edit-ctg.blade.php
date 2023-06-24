@@ -28,7 +28,7 @@
                                         Edit Sub-Category
                                     </div>
                                     <div class="col-md-6"> 
-                                        <a href="{{route('admin.subcategories')}}" class="btn btn-success float-end">All Sub-Categories</a> <!-- Removed angle brackets -->
+                                        <a href="{{route('admin.categories')}}" class="btn btn-success float-end">All Categories</a> <!-- Removed angle brackets -->
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +40,7 @@
                                     
                                     <div class="mb-3 mt-3">
                                         <label for="name" class="form-label">Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Enter sub-category name" wire:model="name"/>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter category name" wire:model="name"/>
                                         @error('name')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror

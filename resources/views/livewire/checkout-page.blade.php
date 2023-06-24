@@ -12,56 +12,6 @@
         <section class="mt-50 mb-50">
             <div class="container">
                 <div class="row">
-                    <!-- <div class="col-lg-6 mb-sm-15">
-                        <div class="toggle_info">
-                            <span><i class="fi-rs-user mr-10"></i><span class="text-muted">Already have an account?</span> <a href="#loginform" data-bs-toggle="collapse" class="collapsed" aria-expanded="false">Click here to login</a></span>
-                        </div>
-                        <div class="panel-collapse collapse login_form" id="loginform">
-                            <div class="panel-body">
-                                <p class="mb-30 font-sm">If you have shopped with us before, please enter your details below. If you are a new customer, please proceed to the Billing &amp; Shipping section.</p>
-                                <form method="post">
-                                    <div class="form-group">
-                                        <input type="text" name="email" placeholder="Username Or Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="password" placeholder="Password">
-                                    </div>
-                                    <div class="login_footer form-group">
-                                        <div class="chek-form">
-                                            <div class="custome-checkbox">
-                                                <input class="form-check-input" type="checkbox" name="checkbox" id="remember" value="">
-                                                <label class="form-check-label" for="remember"><span>Remember me</span></label>
-                                            </div>
-                                        </div>
-                                        <a href="#">Forgot password?</a>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-md" name="login">Log in</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-lg-6">
-                        <div class="toggle_info">
-                            <span><i class="fi-rs-label mr-10"></i><span class="text-muted">Have a coupon?</span> <a href="#coupon" data-bs-toggle="collapse" class="collapsed" aria-expanded="false">Click here to enter your code</a></span>
-                        </div>
-                        <div class="panel-collapse collapse coupon_form " id="coupon">
-                            <div class="panel-body">
-                                <p class="mb-30 font-sm">If you have a coupon code, please apply it below.</p>
-                                <form method="post">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Enter Coupon Code...">
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn  btn-md" name="login">Apply Coupon</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-                <div class="row">
                     <div class="col-12">
                         <div class="divider mt-50 mb-50"></div>
                     </div>
@@ -83,19 +33,8 @@
                                 <span id="address">{{ $address }}</span>
                             </div>
                         </div>
-                        <div class="divider mt-50 mb-50"></div>
+                        <!-- <div class="divider mt-50 mb-50"></div>
                         <form wire:submit.prevent="updateAddress">
-                            <!-- <div class="form-group">
-                                <div class="checkbox">
-                                    <div class="custome-checkbox">
-                                        <input class="form-check-input" type="checkbox" name="checkbox" id="createaccount">
-                                        <label class="form-check-label label_info" data-bs-toggle="collapse" href="#collapsePassword" data-target="#collapsePassword" aria-controls="collapsePassword" for="createaccount"><span>Create an account?</span></label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="collapsePassword" class="form-group create-account collapse in">
-                                <input required="" type="password" placeholder="Password" name="password">
-                            </div> -->
                             <div class="ship_detail">
                                 <div class="form-group">
                                     <div class="chek-form">
@@ -130,8 +69,8 @@
                                     <button type="submit">Update</button>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </form>-->
+                    </div> 
                     <div class="col-md-6">
                         <div class="order_review"> 
                             <div class="mb-20">
@@ -172,12 +111,8 @@
                                 </div>
                                 <div class="payment_option">
                                     <div class="custome-radio">
-                                        <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios3">
-                                        <label class="form-check-label" for="exampleRadios3" data-bs-toggle="collapse" data-target="#cashOnDelivery" aria-controls="cashOnDelivery">Cash On Delivery</label>                                        
-                                    </div>
-                                    <div class="custome-radio">
                                         <input class="form-check-input" required="" type="radio" name="payment_option" id="exampleRadios5">
-                                        <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse" data-target="#stripe\" aria-controls="paypal">Debit/Credit</label>                                        
+                                        <label class="form-check-label" for="exampleRadios5" data-bs-toggle="collapse" data-target="#stripe\" aria-controls="stripe">Debit/Credit</label>                                        
                                     </div>
                                 </div>
                             </div>

@@ -52,10 +52,6 @@
                                     </div>
                                     <div class="sort-by-dropdown">
                                         <ul>
-                                            <li><a class="{{ $orderBy == 'Default Sorting' ? 'active' : '' }}"
-                                                    href="#"
-                                                    wire:click.prevent="changeSort('Default Sorting')">Default
-                                                    Sorting</a></li>
                                             <li><a class="{{ $orderBy == 'Price: Low to High' ? 'active' : '' }}"
                                                     href="#"
                                                     wire:click.prevent="changeSort('Price: Low to High')">Price: Low to
@@ -79,10 +75,10 @@
                                             <div class="product-img product-img-zoom">
                                                 <a href="{{ route('product.details', ['ctg' => $product->ctg]) }}">
                                                     <img class="default-img"
-                                                        src="{{ asset('assets/imgs/shop/product-') }}{{ $product->id }}-1.jpeg"
+                                                        src="{{ asset('assets/imgs/shop/product-') }}{{ $product->id }}-1.jpg"
                                                         alt="{{ $product->name }}">
                                                     <img class="hover-img"
-                                                        src="{{ asset('assets/imgs/shop/product-') }}{{ $product->id }}-2.jpeg"
+                                                        src="{{ asset('assets/imgs/shop/product-') }}{{ $product->id }}-2.jpg"
                                                         alt="{{ $product->name }}">
                                                 </a>
                                             </div>

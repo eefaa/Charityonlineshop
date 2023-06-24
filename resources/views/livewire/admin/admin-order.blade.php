@@ -46,7 +46,6 @@
                                         <th>Total</th>
                                         <th>Status</th>
                                         <th>Tracking No</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,11 +57,30 @@
                                             <td>{{++$i}}</td>
                                             <td>{{$order->id}}</td>
                                             <td>{{$order->user_id}}</td>
-                                            <td>{{$order->address}}</td>
-                                            <td>{{$order->product_name}}</td>
-                                            <td>{{$order->product_price}}</td>
-                                            <td>{{$order->quantity}}</td>
-                                            <td>{{$order->subtotal}}</td>
+                                            <td>{{ $order->user->address }}</td>
+
+                                            <td>
+                                                <ul>
+                                                    @foreach($order->order_items as $item)
+                                                    <li>{{ $item->product->name }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                        @foreach($order->order_items as $item)
+                                                        <li>RM{{ number_format($item->product->oriPrice, 2)  }}</li>
+                                                        @endforeach
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                        @foreach($order->order_items as $item)
+                                                        <li>x{{ $item->quantity}}</li>
+                                                        @endforeach
+                                                </ul>
+                                            </td>
+                                            <td>RM{{ $order->subtotal }}</td>
                                             <td>
                                                 <select wire:change="updateStatus({{ $order->id }} , $event.target.value)">
                                                     <option value="To Ship" @if($order->status == 'To Ship') selected @endif>To Ship</option>
@@ -70,10 +88,8 @@
                                                     <option value="Completed" @if($order->status == 'Completed') selected @endif>Completed</option>
                                                 </select>
                                             </td>
-
-                                            <td>{{$order->tracking_no}}</td>
-                                            <td> 
-                                                <a href="{{ route('admin.order.edit', ['orderId' => $order->id]) }}" class="text-info">Edit</a>
+                                            <td>
+                                                <input type="text" name="tracking_no" class="form-control" wire:model.defer="tracking_no" wire:change="updatetracking" />
                                             </td>
                                         </tr>
                                     @endforeach

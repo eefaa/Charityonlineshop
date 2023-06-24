@@ -64,7 +64,7 @@
                                                     $img_source = asset('assets/imgs/shop/product-') . $product->id . '-1.jpeg';
 
                                                 }else
-                                                 $img_source = asset('assets/imgs/shop') . "/" . $product->img;
+                                                 $img_source = asset('assets/imgs/shop') . "/" . $product->img ;
 
                                             @endphp
                                             <td><img src="{{ $img_source }}"  alt="{{$product->name}}" width="60"/></td>

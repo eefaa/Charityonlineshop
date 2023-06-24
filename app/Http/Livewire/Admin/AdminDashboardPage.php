@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
-use App\Models\Payment;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 use Livewire\WithPagination; 
@@ -25,19 +25,19 @@ class AdminDashboardPage extends Component
 
     public function render()
     {
-        $totalUser = User::where('utype','USER')->count();
+        // $totalUser = User::where('utype','USER')->count();
 
         $todayDate = Carbon::now()->format('Y-m-d');
-        $monthDate = Carbon::now()->format('Y-m');
-        $yearDate = Carbon::now()->format('Y-m-d');
+        $monthDate = Carbon::now()->format('m');
+        $yearDate = Carbon::now()->format('Y');
 
-        $todaySale = Payment::whereDate('created_at',$todayDate)->sum('amount');
-        $monthSale = Payment::whereMonth('created_at',$monthDate)->sum('amount');
-        $yearSale = Payment::whereYear('created_at',$yearDate)->sum('amount');
+        $todaySale = Order::whereDate('created_at',$todayDate)->sum('subtotal');
+        $monthSale = Order::whereMonth('created_at',$monthDate)->sum('subtotal');
+        $yearSale = Order::whereYear('created_at',$yearDate)->sum('subtotal');
 
-        $todayOrder = Payment::whereDate('created_at',$todayDate)->count('amount');
-        $monthOrder = Payment::whereMonth('created_at',$monthDate)->count('amount');
-        $yearOrder = Payment::whereYear('created_at',$yearDate)->count('amount');
+        $todayOrder = Order::whereDate('created_at',$todayDate)->count('subtotal');
+        $monthOrder = Order::whereMonth('created_at',$monthDate)->count('subtotal');
+        $yearOrder = Order::whereYear('created_at',$yearDate)->count('subtotal');
 
         // $orders = Payment::all();
 
@@ -49,26 +49,28 @@ class AdminDashboardPage extends Component
         $selectedMonth = Carbon::createFromFormat('Y-m', $this->month)->format('m');
         $selectedYear = Carbon::createFromFormat('Y-m', $this->month)->format('Y');
 
-        $orders = Payment::whereMonth('created_at', $selectedMonth)
+        $orders = Order::whereMonth('created_at', $selectedMonth)
             ->whereYear('created_at', $selectedYear)
             ->get();
         } 
         else if($this->date){
+           
             $selectDate = Carbon::createFromFormat('Y-m-d', $this->date)->format('Y-m-d');
-            $orders = Payment::whereDate('created_at', $selectDate)->get();
-        
+            $orders = Order::whereDate('created_at', $selectDate)->get();
+            
+           
         }
         else if($this->year){
             $selectedYear = $this->year;
-            $orders = Payment::whereYear('created_at', $selectedYear)->get();
+            $orders = Order::whereYear('created_at', $selectedYear)->get();
         }
         else {
-            $orders = Payment::whereDate('created_at', $selectDate)->get();
+            $orders = Order::whereDate('created_at', $selectDate)->get();
             
         }
       
 
-        return view('livewire.admin.admin-dashboard-page', compact('totalUser','todaySale','monthSale','yearSale', 
+        return view('livewire.admin.admin-dashboard-page', compact('todaySale','monthSale','yearSale', 
         'todayOrder','monthOrder','yearOrder','orders','selectDate','sale'));
 
     }

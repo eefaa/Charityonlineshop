@@ -82,9 +82,9 @@
                                                 <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>  -->
                                             </div>
                                         </div>
-                                        <ul class="product-meta font-xs color-grey mt-50">
+                                        <!-- <ul class="product-meta font-xs color-grey mt-50">
                                             <li>Availability:<span class="in-stock text-success ml-5">{{$product->quantity}}</span></li>
-                                        </ul>
+                                        </ul> -->
                                     </div>
                                     <!-- Detail Info -->
                                 </div>

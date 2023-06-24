@@ -50,9 +50,10 @@ class Kategori extends Component
             $categories = Category::where('ctg',$this->ctg)->first();
             $ctgId = $categories->id;
             $ctgName = $categories->name;
+
             if($this->orderBy == 'Price: Low to High')
             {
-                $products = Product::where('ctgId', $ctgId)->orderBy('oriPrice','ASC');
+                $products = Product::where('ctgId', $ctgId)->orderBy('oriPrice','ASC')->paginate($this->itmSize);
             }
             else if($this->orderBy == 'Price: High to Low') 
             {
