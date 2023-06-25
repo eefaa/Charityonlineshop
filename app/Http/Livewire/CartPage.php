@@ -12,22 +12,22 @@ class CartPage extends Component
         dd('laluu');
     }
 
-    public function increaseQty($rowId)
-    {
-        $product = Cart::get($rowId);
-        $qty = $product->qty + 1;
-        Cart::update($rowId,$qty);
-        $this->emitTo('cart-icon');
+    // public function increaseQty($rowId)
+    // {
+    //     $product = Cart::get($rowId);
+    //     $qty = $product->qty + 1;
+    //     Cart::update($rowId,$qty);
+    //     $this->emitTo('cart-icon');
 
-    }
-    public function decreaseQty($rowId)
-    {
-        $product = Cart::get($rowId);
-        $qty = $product->qty - 1;
-        Cart::update($rowId,$qty);
-        $this->emitTo('cart-icon');
+    // }
+    // public function decreaseQty($rowId)
+    // {
+    //     $product = Cart::get($rowId);
+    //     $qty = $product->qty - 1;
+    //     Cart::update($rowId,$qty);
+    //     $this->emitTo('cart-icon');
 
-    }
+    // }
     public function destroy($id)
     {
         Cart::remove ($id);

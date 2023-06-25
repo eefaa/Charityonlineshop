@@ -41,11 +41,12 @@
                                         </td>
                                         <td class="price" data-title="Price"><span>RM{{$item->model->oriPrice}}</span></td>
                                         <td class="text-center" data-title="Stock">
-                                            <div class="detail-qty border radius  m-auto">
+                                            <!-- <div class="detail-qty border radius  m-auto">
                                                 <a href="#" class="qty-down" wire:click.prevent="decreaseQty('{{$item->rowId}}')"><i class="fi-rs-angle-small-down"></i></a>
                                                 <span class="qty-val">{{$item->qty}}</span>
                                                 <a href="#" class="qty-up" wire:click.prevent="increaseQty('{{$item->rowId}}')"><i class="fi-rs-angle-small-up"></i></a>
-                                            </div>
+                                            </div> -->
+                                        <span>1</span>
                                         </td>
                                         <td class="text-right" data-title="Cart">
                                             <span>{{$item->subtotal}}  </span>

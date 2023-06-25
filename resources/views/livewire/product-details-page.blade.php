@@ -70,16 +70,14 @@
                                         </div>
                                         <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                         <div class="detail-extralink">
-                                            <div class="detail-qty border radius">
+                                            <!-- <div class="detail-qty border radius">
                                                 <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
                                                 <span class="qty-val">1</span>
                                                 <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
-                                            </div>
+                                            </div> -->
                                             <div class="product-extra-link2">
                                                 <a href= "{{route('product.cart')}}">
                                                 <button type="button"  class="button" wire:click.prevent ="store({{$product->id}},'{{$product->name}}',{{$product->oriPrice}})" >Add to cart</button></a>
-                                                <!-- <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                                <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>  -->
                                             </div>
                                         </div>
                                         <!-- <ul class="product-meta font-xs color-grey mt-50">
@@ -94,62 +92,15 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">Description</a>
                                     </li>
-                                    <!-- <li class="nav-item">
-                                        <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info">Additional info</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews (3)</a>
-                                    </li> -->
                                 </ul>
                                 <div class="tab-content shop_info_tab entry-main-content">
                                     <div class="tab-pane fade show active" id="Description">
                                         <div class="">
                                             {!! nl2br($product->description) !!}
+                                            <p>***TERMS AND CONDITIONS: ALL SOLD ITEM CANNOT BE REFUND***</p>
                                         </div>
                                     </div> 
-                                </div>            
-                            <!-- <div class="row mt-60">
-                                <div class="col-12">
-                                    <h3 class="section-title style-1 mb-30">Related products</h3>
-                                </div>
-                                <div class="col-12">
-                                    <div class="row related-products">
-
-                                        <div class="col-lg-3 col-md-4 col-12 col-sm-6">
-                                            <div class="product-cart-wrap small hover-up">
-                                                <div class="product-img-action-wrap">
-                                                    <div class="product-img product-img-zoom">
-                                                        <a href="{{route('product.details',['ctg'=>$product->ctg])}}" tabindex="0">
-                                                            <img class="default-img" src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpg" alt="{{$product->name}}">
-                                                            <img class="hover-img" src="{{asset('assets/imgs/shop/product-2-2.jpg')}}" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="product-action-1">
-                                                        <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
-                                                        <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="wishlist.php" tabindex="0"><i class="fi-rs-heart"></i></a>
-                                                        <a aria-label="Compare" class="action-btn small hover-up" href="compare.php" tabindex="0"><i class="fi-rs-shuffle"></i></a>
-                                                    </div>
-                                                    <div class="product-badges product-badges-position product-badges-mrg">
-                                                        <span class="hot">Hot</span>
-                                                    </div>
-                                                </div>
-                                                <div class="product-content-wrap">
-                                                    <h2><a href="{{route('product.details',['ctg'=>$product->ctg])}}" tabindex="0">{{$product->name}}</a></h2>
-                                                    <div class="rating-result" title="90%">
-                                                        <span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="product-price">
-                                                        <span>{{$product->oriPrice}} </span> -->
-                                                        <!-- <span class="old-price">$245</span> -->
-                                                    <!-- </div>
-                                                </div>
-                                            </div>
-                                        </div> 
-                                        
-                                    </div>
-                                </div>
-                            </div>                             -->
+                                </div>           
                         </div>
                     </div>
                 </div>

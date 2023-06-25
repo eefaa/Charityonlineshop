@@ -34,8 +34,11 @@
                                     </select>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-primary">Donate Now</button>
+                                    <!-- <button type="submit" class="btn btn-primary">Donate Now</button> -->
                                     <!-- <li><a href="{{route('donate.berjaya')}}">Orders</a></li> -->
+                                    <button wire:click="saveOrder" class="btn btn-fill-out btn-block mt-30">Donate</button>
+                                    <script src="http://js.stripe.com/v3/"></script>
+                                    <script src="script.js"></script>
                                 </div>
                             </form>
                         </div>

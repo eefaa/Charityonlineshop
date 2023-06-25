@@ -15,4 +15,8 @@ class Donate extends Model
         'phone',
         'email' 
     ];
+    
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

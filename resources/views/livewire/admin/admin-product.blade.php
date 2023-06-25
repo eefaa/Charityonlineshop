@@ -82,10 +82,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{$products->links()}}
-                        </div>
+                            <!-- <div class="pagination-area mt-15 mb-sm-5 mb-lg-0">{{$products->links()}}</div> -->
+                        </div> 
                     </div>
-                </div>
+                </div> 
             </div>
         </section>
     </main>

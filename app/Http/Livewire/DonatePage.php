@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Donate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Stripe\StripeClient;
+use Illuminate\Support\Facades\Redirect;
 
 class DonatePage extends Component
 {
@@ -39,7 +41,7 @@ class DonatePage extends Component
             'email' => 'required' 
         ]);
 
-        Donate::create([
+        $donate=Donate::create([
             'amount' => $request->amount,
             'name' => $request->name,
             'phone' => $request->phone,
@@ -48,9 +50,33 @@ class DonatePage extends Component
 
         // $this->reset();
         session()->flash('message','Donate has been save successfully !');
-
-        return redirect()->back();
+ 
+        $stripe_items[] = [
+            "price_data" => [
+                "currency" => "myr",
+                "product_data" => [
+                    "name" => $request->name,
+                    "description" =>"Donate",
+                ],
+                "unit_amount" => (int) ($request->amount * 100),
+            ],
+            "quantity" => 1,
+        ];
         
+
+    header('Content-Type', 'application/json');
+    //private key
+    $stripe = new StripeClient("sk_test_51NDTYII77OwsPp92HgyJpxku5KnJMvMdloXOxUkaT8NS1wuD7Btyuc4xZtqjY6oX6jB4Q3MDcQynBeN0oiQL449z00TpkEG3ih");
+    $session = $stripe->checkout->sessions->create([
+        "success_url" => "http://charityonlineshop-v1.test/berjayadonate/" ,
+        "cancel_url" => "http://charityonlineshop-v1.test/canceldonate/", 
+        "payment_method_types" => ['card'],
+        "mode" => 'payment',
+        "line_items" => $stripe_items
+    ]);
+
+    // Redirect::to($session->url);
+    return redirect()->to($session->url);
     }
 
     public function render()

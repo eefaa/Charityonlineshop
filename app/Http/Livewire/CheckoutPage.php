@@ -14,40 +14,40 @@ use Illuminate\Support\Facades\Redirect;
 
 
     // require './vendor/autoload.php';
-    header('Content-Type', 'application/json');
-        //private key
-        $stripe = new StripeClient("sk_test_51NDTYII77OwsPp92HgyJpxku5KnJMvMdloXOxUkaT8NS1wuD7Btyuc4xZtqjY6oX6jB4Q3MDcQynBeN0oiQL449z00TpkEG3ih");
-        $session = $stripe->checkout->sessions->create([
-            "success_url" => "http://127.0.0.1:8000/success.html",
-            "cancel_url" => "http://127.0.0.1:8000/cancel.html",
-            "payment_method_types" => ['card'],
-            "mode" => 'payment',
-            "line_items" => [
-                [
-                "price_data" =>[
-                    "currency" =>"myr",
-                    "product_data" =>[
-                        "name"=> "Mobile",
-                        "description" => "Latest mobile 2021"
-                    ],
-                    "unit_amount" => 5000
-                ],
-                "quantity" => 1 
-                ],
+    // header('Content-Type', 'application/json');
+    //     //private key
+    //     $stripe = new StripeClient("sk_test_51NDTYII77OwsPp92HgyJpxku5KnJMvMdloXOxUkaT8NS1wuD7Btyuc4xZtqjY6oX6jB4Q3MDcQynBeN0oiQL449z00TpkEG3ih");
+    //     $session = $stripe->checkout->sessions->create([
+    //         "success_url" => "http://127.0.0.1:8000/success.html",
+    //         "cancel_url" => "http://127.0.0.1:8000/cancel.html",
+    //         "payment_method_types" => ['card'],
+    //         "mode" => 'payment',
+    //         "line_items" => [
+    //             [
+    //             "price_data" =>[
+    //                 "currency" =>"myr",
+    //                 "product_data" =>[
+    //                     "name"=> "Mobile",
+    //                     "description" => "Latest mobile 2021"
+    //                 ],
+    //                 "unit_amount" => 5000
+    //             ],
+    //             "quantity" => 1 
+    //             ],
 
-                [
-                    "price_data" =>[
-                        "currency" =>"myr",
-                        "product_data" =>[
-                            "name"=> "Shirt",
-                            "description" => "Light summer shirt"
-                        ],
-                        "unit_amount" => 2000
-                    ],
-                    "quantity" => 2 
-                ]
-            ]
-        ]);
+    //             [
+    //                 "price_data" =>[
+    //                     "currency" =>"myr",
+    //                     "product_data" =>[
+    //                         "name"=> "Shirt",
+    //                         "description" => "Light summer shirt"
+    //                     ],
+    //                     "unit_amount" => 2000
+    //                 ],
+    //                 "quantity" => 2 
+    //             ]
+    //         ]
+    //     ]);
         
         // echo json_encode($session);
     
@@ -84,28 +84,28 @@ class CheckoutPage extends Component
 
     }
 
-    public function updateAddress()
-    {
-        // Validate the input fields
-        $this->validate([
-            'name' => 'required|string',
-            'phone' => 'required',
-            'address' => 'required',
-            'state' => 'required',
-            'postcode' => 'required',
-            'city' => 'required',
+    // public function updateAddress()
+    // {
+    //     // Validate the input fields
+    //     $this->validate([
+    //         'name' => 'required|string',
+    //         'phone' => 'required',
+    //         'address' => 'required',
+    //         'state' => 'required',
+    //         'postcode' => 'required',
+    //         'city' => 'required',
             
-        ]);
+    //     ]);
 
-        $combinedAddress = $this->n_address . ', ' . $this->n_city . ', ' . $this->n_state . ',' . $this->n_postcode;
-        // Update the user's profile
-        $user = auth()->user();
-        $user = new User();
-        $user->name = $this->n_name;    
-        $user->address = $combinedAddress;
-        $user->phone = $this->n_phone;
-        $user->save();
-    }
+    //     $combinedAddress = $this->n_address . ', ' . $this->n_city . ', ' . $this->n_state . ',' . $this->n_postcode;
+    //     // Update the user's profile
+    //     $user = auth()->user();
+    //     $user = new User();
+    //     $user->name = $this->n_name;    
+    //     $user->address = $combinedAddress;
+    //     $user->phone = $this->n_phone;
+    //     $user->save();
+    // }
 
     public function saveOrder()
     {
@@ -150,7 +150,7 @@ class CheckoutPage extends Component
         $stripe = new StripeClient("sk_test_51NDTYII77OwsPp92HgyJpxku5KnJMvMdloXOxUkaT8NS1wuD7Btyuc4xZtqjY6oX6jB4Q3MDcQynBeN0oiQL449z00TpkEG3ih");
         $session = $stripe->checkout->sessions->create([
             "success_url" => "http://charityonlineshop-v1.test/paymentberjaya/" . $order->id,
-            "cancel_url" => "http://charityonlineshop-v1.test/paymentberjaya/" . $order->id,
+            "cancel_url" => "http://charityonlineshop-v1.test/paymentcancel/". $order->id,
             "payment_method_types" => ['card'],
             "mode" => 'payment',
             "line_items" => $stripe_items
