@@ -61,7 +61,7 @@
                                             
 
                                                 if($product->img == null){
-                                                    $img_source = asset('assets/imgs/shop/product-') . $product->id . '-1.jpeg';
+                                                    $img_source = asset('assets/imgs/shop/product-') . $product->id . '-1.jpg';
 
                                                 }else
                                                  $img_source = asset('assets/imgs/shop') . "/" . $product->img ;

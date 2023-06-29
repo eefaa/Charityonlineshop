@@ -88,9 +88,18 @@
                                                     <option value="Completed" @if($order->status == 'Completed') selected @endif>Completed</option>
                                                 </select>
                                             </td>
-                                            <td>
-                                                <input type="text" name="tracking_no" class="form-control" wire:model.defer="tracking_no" wire:change="updatetracking" />
+                                            <td >
+                                            <ul>
+                                                       
+                                                        <li>{{ $order->tracking_no}}</li>
+                                                       
+                                                        <!-- <input wire:model.defer="tracking_no" type="tracking_no}" class="form-control" id="tracking_no}" required>
+                                                 -->
+                                                </ul>
                                             </td>
+                                            <!-- <td>
+                                                <button wire:click="updatetracking({{ $order->id }})">Update Tracking</button>
+                                            </td> -->
                                         </tr>
                                     @endforeach
                                 </tbody>

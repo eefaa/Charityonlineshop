@@ -20,16 +20,16 @@
                                         <!-- MAIN SLIDES -->
                                         <div class="product-image-slider">
                                             <figure class="border-radius-10">
-                                                <img src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpeg" alt="product image">
+                                                <img src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpg" alt="product image">
                                             </figure>
                                             <figure class="border-radius-10">
-                                                <img src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-2.jpeg" alt="product image">
+                                                <img src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-2.jpg" alt="product image">
                                             </figure> 
                                         </div>
                                         <!-- THUMBNAILS -->
                                         <div class="slider-nav-thumbnails pl-15 pr-15">
-                                            <div><img src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpeg" alt="product image"></div>
-                                            <div><img src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-2.jpeg" alt="product image"></div>
+                                            <div><img src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpg" alt="product image"></div>
+                                            <div><img src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-2.jpg" alt="product image"></div>
                                         </div>
                                     </div>
                                     <!-- End Gallery -->
@@ -97,7 +97,6 @@
                                     <div class="tab-pane fade show active" id="Description">
                                         <div class="">
                                             {!! nl2br($product->description) !!}
-                                            <p>***TERMS AND CONDITIONS: ALL SOLD ITEM CANNOT BE REFUND***</p>
                                         </div>
                                     </div> 
                                 </div>           

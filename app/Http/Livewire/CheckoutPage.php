@@ -11,45 +11,6 @@ use Illuminate\Support\Facades\Auth;
 use Stripe\StripeClient;
 use Illuminate\Support\Facades\Redirect;
 
-
-
-    // require './vendor/autoload.php';
-    // header('Content-Type', 'application/json');
-    //     //private key
-    //     $stripe = new StripeClient("sk_test_51NDTYII77OwsPp92HgyJpxku5KnJMvMdloXOxUkaT8NS1wuD7Btyuc4xZtqjY6oX6jB4Q3MDcQynBeN0oiQL449z00TpkEG3ih");
-    //     $session = $stripe->checkout->sessions->create([
-    //         "success_url" => "http://127.0.0.1:8000/success.html",
-    //         "cancel_url" => "http://127.0.0.1:8000/cancel.html",
-    //         "payment_method_types" => ['card'],
-    //         "mode" => 'payment',
-    //         "line_items" => [
-    //             [
-    //             "price_data" =>[
-    //                 "currency" =>"myr",
-    //                 "product_data" =>[
-    //                     "name"=> "Mobile",
-    //                     "description" => "Latest mobile 2021"
-    //                 ],
-    //                 "unit_amount" => 5000
-    //             ],
-    //             "quantity" => 1 
-    //             ],
-
-    //             [
-    //                 "price_data" =>[
-    //                     "currency" =>"myr",
-    //                     "product_data" =>[
-    //                         "name"=> "Shirt",
-    //                         "description" => "Light summer shirt"
-    //                     ],
-    //                     "unit_amount" => 2000
-    //                 ],
-    //                 "quantity" => 2 
-    //             ]
-    //         ]
-    //     ]);
-        
-        // echo json_encode($session);
     
 class CheckoutPage extends Component
 {
@@ -141,7 +102,8 @@ class CheckoutPage extends Component
                     ],
                     "unit_amount" => intval($item->model->oriPrice * 100) ?? 0
                 ],
-                "quantity" => $item->qty
+                // "quantity" => $item->qty
+                "quantity" => "1"
             ];
         }
 
@@ -150,7 +112,7 @@ class CheckoutPage extends Component
         $stripe = new StripeClient("sk_test_51NDTYII77OwsPp92HgyJpxku5KnJMvMdloXOxUkaT8NS1wuD7Btyuc4xZtqjY6oX6jB4Q3MDcQynBeN0oiQL449z00TpkEG3ih");
         $session = $stripe->checkout->sessions->create([
             "success_url" => "http://charityonlineshop-v1.test/paymentberjaya/" . $order->id,
-            "cancel_url" => "http://charityonlineshop-v1.test/paymentcancel/". $order->id,
+            "cancel_url" => "http://charityonlineshop-v1.test/paymentcancel/",
             "payment_method_types" => ['card'],
             "mode" => 'payment',
             "line_items" => $stripe_items

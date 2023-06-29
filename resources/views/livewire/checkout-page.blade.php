@@ -81,11 +81,12 @@
                                     <tbody>
                                     @foreach(Cart::content() as $item)
                                         <tr>
-                                            <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-')}}{{$item->id}}-1.jpeg" alt="#"></td>
+                                            <td class="image product-thumbnail"><img src="{{asset('assets/imgs/shop/product-')}}{{$item->id}}-1.jpg" alt="#"></td>
                                             <td class="text-left">
                                                 <h5><a href="product-details.html">{{$item->model->name}}</a></h5>
                                                 <h5><span>RM{{$item->model->oriPrice}}</span></h5>
-                                                <span class="product-qty">x{{$item->qty}}</span>
+                                                <!-- <span class="product-qty">x{{$item->qty}}</span> -->
+                                                <span class="product-qty">x 1</span>
                                             </td>
                                         </tr>
                                     @endforeach

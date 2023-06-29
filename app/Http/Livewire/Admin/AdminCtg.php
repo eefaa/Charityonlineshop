@@ -11,12 +11,7 @@ class AdminCtg extends Component
     public $ctgId;
     use WithPagination;
 
-    // public function deleteCtg()
-    // {
-    //     $category = Category::find($this->ctgId);
-    //     $category->delete();
-    //     session()->flash('message','Category has been  deleted !');
-    // }
+ 
     public function deleteCtg()
     {   
         $category = Category::find($this->ctgId);

@@ -12,11 +12,11 @@
                                             @foreach(Cart::content() as $item)
                                                 <li>
                                                     <div class="shopping-cart-img">
-                                                        <a href="{{route('product.details',['ctg'=> $item->model->ctg])}}"><img alt="{{($item->model->name)}}" src="{{asset('assets/imgs/shop/product-')}}{{$item->id}}-1.jpeg"></a>
+                                                        <a href="{{route('product.details',['ctg'=> $item->model->ctg])}}"><img alt="{{($item->model->name)}}" src="{{asset('assets/imgs/shop/product-')}}{{$item->id}}-1.jpg"></a>
                                                     </div>
                                                     <div class="shopping-cart-title">
                                                         <h4><a href="{{route('product.details',['ctg'=> $item->model->ctg])}}">{{substr($item->model->name,0,20)}}...</a></h4>
-                                                        <h4><span>{{$item->qty}} x </span>RM{{($item->model->oriPrice)}}</h4>
+                                                        <h4><span>x 1 </span>RM{{($item->model->oriPrice)}}</h4>
                                                     </div>
                                                     <!-- <div class="shopping-cart-delete">
                                                         <a href="#"><i class="fi-rs-cross-small"></i></a>

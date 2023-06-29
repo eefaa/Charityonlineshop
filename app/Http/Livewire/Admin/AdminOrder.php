@@ -13,6 +13,8 @@ class AdminOrder extends Component
     public $orderId;
     public $status;
     public $tracking_no;
+  
+
 
     public function updateStatus($orderId, $evt_status)
     {
@@ -21,7 +23,7 @@ class AdminOrder extends Component
         $order->save();
     }
 
-    public function updatetracking()
+    public function updatetracking($orderId)
     {
         $this->validate([
             'tracking_no' => 'required'

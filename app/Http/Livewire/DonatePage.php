@@ -30,7 +30,6 @@ class DonatePage extends Component
         }
     }
     
-
     public function storeDonate(Request $request)
     {
 
