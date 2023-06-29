@@ -26,31 +26,6 @@
         <div class="header-top header-top-ptb-1 d-none d-lg-block">
             <div class="container">
                 <div class="row align-items-center">
-                    <!-- <div class="col-xl-3 col-lg-4">
-                        <div class="header-info">
-                        <ul>
-                                <li>
-                                    <a class="language-dropdown-active" href="#"> <i class="fi-rs-world"></i> English <i class="fi-rs-angle-small-down"></i></a>
-                                    <ul class="language-dropdown">
-                                        <li><a href="#"><img src="assets/imgs/theme/flag-fr.png" alt="">Français</a></li>
-                                        <li><a href="#"><img src="assets/imgs/theme/flag-dt.png" alt="">Deutsch</a></li>
-                                        <li><a href="#"><img src="assets/imgs/theme/flag-ru.png" alt="">Pусский</a></li>
-                                    </ul>
-                                </li>                                
-                            </ul>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-xl-6 col-lg-4">
-                        <div class="text-center">
-                            <div id="news-flash" class="d-inline-block">
-                                <ul>
-                                    <li>Get great devices up to 50% off <a href="shop.html">View details</a></li>
-                                    <li>Supper Value Deals - Save more with coupons</li>
-                                    <li>Trendy 25silver jewelry, save up 35% off today <a href="shop.html">Shop now</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="col-xl-12 col-lg-4">
                         <div class="header-info header-info-right">
                             @auth
@@ -192,42 +167,29 @@
                     <!-- mobile menu start -->
                     <nav>
                         <ul class="mobile-menu">
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="index.html">Home</a></li>
-                            <li class="menu-item-has-children"><span class="menu-expand"></span><a href="shop.html">shop</a>
-                                <ul class="dropdown">
-                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Men Clothing</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">Top</a></li>
-                                            <li><a href="#">Pants</a></li>
-                                            <li><a href="#">Accessories</a></li>
-                                            <li><a href="#">Shoes</a></li>
-                                            <li><a href="#">Bags</a></li>   
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Women Clothing</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">Top</a></li>
-                                            <li><a href="#">Pants</a></li>
-                                            <li><a href="#">Accessories</a></li>
-                                            <li><a href="#">Shoes</a></li>
-                                            <li><a href="#">Bags</a></li> 
-                                        </ul>  
-                                    
-                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Home & Garden</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">Tables</a></li>
-                                            <li><a href="#">Chair</a></li>
-                                            <li><a href="#">Garden</a></li> 
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><span class="menu-expand"></span><a href="#">Books</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">Fiction</a></li>
-                                            <li><a href="#">Non-Fiction</a></li> >
-                                        </ul>
-                                    </li>
+                        <li><a class="active" href="/">Home </a></li>
+                                    <li><a href="{{route('donate')}}">Donate</a></li>
+                                    <li><a href= "{{route('product')}}">Shop</a></li>
                                 </ul>
                             </li>
+                            @auth
+                                    <li><a href="#">My Account<i class="fi-rs-angle-down"></i></a>
+                                            @if(Auth::user()->utype == 'ADMIN')
+                                            <ul class="sub-menu">
+                                                <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                                                <li><a href="{{route('admin.products')}}">Products</a></li>
+                                                <li><a href="{{route('admin.categories')}}">Categories</a></li>
+                                                <li><a href="{{route('admin.order')}}">Orders</a></li>
+                                       
+                                            </ul>
+                                            @else
+                                            <ul class="sub-menu">
+                                                <li><a href="{{route('user.profile')}}">My Account</a></li>
+                                                <li><a href="{{route('orderHistory')}}">Order History</a></li>                                           
+                                            </ul>
+                                            @endif
+                                    </li>
+                            @endif
                         </ul>
                     </nav>
                     <!-- mobile menu end -->
@@ -258,45 +220,12 @@
                         <a href="#">(+1) 0000-000-000 </a>
                     </div> -->
                 </div>
-                <div class="mobile-social-icon">
-                    <h5 class="mb-15 text-grey-4">Follow Us</h5>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
-                    <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
-                </div>
             </div>
         </div>
     </div>        
     
     {{$slot}}
     <footer class="main">
-        <!-- <section class="newsletter p-30 text-white wow fadeIn animated">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-7 mb-md-3 mb-lg-0">
-                        <div class="row align-items-center">
-                            <div class="col flex-horizontal-center">
-                                <img class="icon-email" src="assets/imgs/theme/icons/icon-email.svg" alt="">
-                                <h4 class="font-size-20 mb-0 ml-3">Sign up to Newsletter</h4>
-                            </div>
-                            <div class="col my-4 my-md-0 des">
-                                <h5 class="font-size-15 ml-4 mb-0">...and receive <strong>$25 coupon for first shopping.</strong></h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5"> -->
-                        <!-- Subscribe Form -->
-                        <!-- <form class="form-subcriber d-flex wow fadeIn animated">
-                            <input type="email" class="form-control bg-white font-small" placeholder="Enter your email">
-                            <button class="btn bg-dark text-white" type="submit">Subscribe</button>
-                        </form> -->
-                        <!-- End Subscribe Form -->
-                    <!-- </div>
-                </div>
-            </div>
-        </section> -->
         <section class="section-padding footer-mid">
             <div class="container pt-15 pb-20">
                 <div class="row">
@@ -317,14 +246,6 @@
                             <p class="wow fadeIn animated">
                                 <strong>Email: </strong>contact@utmcarecharity
                             </p>
-                            <!-- <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Follow Us</h5>
-                            <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-facebook.svg" alt=""></a>
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-twitter.svg" alt=""></a>
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-instagram.svg" alt=""></a>
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a>
-                                <a href="#"><img src="assets/imgs/theme/icons/icon-youtube.svg" alt=""></a>
-                            </div> -->
                         </div>
                     </div>
                     <!-- <div class="col-lg-2 col-md-3">
