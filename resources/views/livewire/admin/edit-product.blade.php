@@ -44,11 +44,6 @@
                                     </div>
 
                                     <div class="mb-3 mt-3">
-                                        <label for="ctg" class="form-label">Slug</label>
-                                        <input type="text" name="ctg" class="form-control" placeholder="Enter product slug" wire:model="ctg" />
-                                    </div>
-
-                                    <div class="mb-3 mt-3">
                                         <label for="shortDesc" class="form-label">Short Description</label>
                                         <textarea type="text" name="shortDesc" class="form-control" placeholder="Enter short description" wire:model="shortDesc" ></textarea>
                                     </div>
@@ -73,13 +68,11 @@
                                         </select>
                                        
                                     </div>
-
                                     <div class="mb-3 mt-3">
                                         <label for="quantity" class="form-label">Quantity</label>
                                         <input type="text" name="quantity" class="form-control" placeholder="Enter quantity" wire:model="quantity" />
                                     
                                     </div>
-
                                     <div class="mb-3 mt-3">
                                         <label for="image" class="form-label" wire:model="image">Image</label>
                                         <input type="file" name="image"class=" form-control" wire:model="newimg" />
@@ -93,7 +86,6 @@
                                         @endif
                                      
                                     </div>
-
                                     <div class="mb-3 mt-3">
                                         <label for="ctgId" class="form-label">Category</label>
                                         <select class="form-control" name="ctgId">
@@ -104,8 +96,6 @@
                                         </select>
                                      
                                     </div>
-
-
                                     <button type="submit" class="btn btn-primary float-end">Update</button>
                                 </form>
                             </div>

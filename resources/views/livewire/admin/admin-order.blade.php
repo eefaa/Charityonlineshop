@@ -89,17 +89,9 @@
                                                 </select>
                                             </td>
                                             <td >
-                                            <ul>
-                                                       
-                                                        <li>{{ $order->tracking_no}}</li>
-                                                       
-                                                        <!-- <input wire:model.defer="tracking_no" type="tracking_no}" class="form-control" id="tracking_no}" required>
-                                                 -->
-                                                </ul>
+                                                <input type="text" wire:model="tracking_no.{{ $order->id }}" />
+                                                <button wire:click="updatetracking({{ $order->id }})">Save</button>
                                             </td>
-                                            <!-- <td>
-                                                <button wire:click="updatetracking({{ $order->id }})">Update Tracking</button>
-                                            </td> -->
                                         </tr>
                                     @endforeach
                                 </tbody>

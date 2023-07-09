@@ -4,7 +4,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html" rel="nofollow">Home</a>
+                    <a href="/" rel="nofollow">Home</a>
                     <span></span> Shop
                 </div>
             </div>
@@ -45,10 +45,14 @@
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
-                                            <a href="{{route('product.details',['ctg'=> $product->ctg])}}">
-                                                <img class="default-img" src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-1.jpg" alt="{{$product->name}}">
-                                                <img class="hover-img" src="{{asset('assets/imgs/shop/product-')}}{{$product->id}}-2.jpg" alt="{{$product->name}}">
-                                            </a>
+                                        <a href="{{ route('product.details', ['ctg' => $product->ctg]) }}">
+                                                    <img class="default-img"
+                                                        src="{{ asset('assets/imgs/shop/product-') }}{{ $product->id }}-1.jpg"
+                                                        alt="{{ $product->name }}">
+                                                    <img class="hover-img"
+                                                        src="{{ asset('assets/imgs/shop/product-') }}{{ $product->id }}-2.jpg"
+                                                        alt="{{ $product->name }}">
+                                                </a>
                                         </div>
                                     </div>
                                     <div class="product-content-wrap">

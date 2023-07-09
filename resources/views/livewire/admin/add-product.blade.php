@@ -46,14 +46,6 @@
                                     </div>
 
                                     <div class="mb-3 mt-3">
-                                        <label for="ctg" class="form-label">Slug</label>
-                                        <input type="text" name="ctg" class="form-control" placeholder="Enter product slug" wire:model="ctg" />
-                                        @error('ctg')
-                                            <p class="text-danger">{{$message}}</p>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-3 mt-3">
                                         <label for="shortDesc" class="form-label">Short Description</label>
                                         <textarea type="text" name="shortDesc" class="form-control" placeholder="Enter short description" wire:model="shortDesc" ></textarea>
                                         @error('shortDesc')

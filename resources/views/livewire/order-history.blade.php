@@ -21,6 +21,8 @@
                             <th>Amount</th>
                             <th>Subtotal</th>
                             <th>Address</th>
+                            <th>Status</th>
+                            <th>Tracking No</th>
                             <!-- Add more columns as needed -->
                         </tr>
                     </thead>
@@ -58,7 +60,8 @@
                                 </td>
                                 <td>RM{{ $order->subtotal }}</td>
                                 <td>{{ $order->user->address }}</td>
-                                
+                                <td>{{ $order->status }}</td>
+                                <td>{{ $order->tracking_no }}</td>
                                 <!-- Display more data as needed -->
                             </tr>
                         @endforeach

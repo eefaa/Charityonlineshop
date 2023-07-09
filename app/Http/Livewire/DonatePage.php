@@ -17,6 +17,7 @@ class DonatePage extends Component
     public $phone;
     public $email;
     public $userData;
+    
 
     public function mount()
     {

@@ -2,14 +2,13 @@
 
 // use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\homeComponent;
-use App\Http\Livewire\productPage;
-use App\Http\Livewire\cartPage;
-use App\Http\Livewire\checkoutPage;
-use App\Http\Livewire\productDetailsPage;
-use App\Http\Livewire\bookPage;
-use App\Http\Livewire\kategori;
-use App\Http\Livewire\searchPage;
+use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\ProductPage;
+use App\Http\Livewire\CartPage;
+use App\Http\Livewire\CheckoutPage;
+use App\Http\Livewire\ProductDetailsPage;
+use App\Http\Livewire\Kategori;
+use App\Http\Livewire\SearchPage;
 use App\Http\Livewire\User\UserDashboardPage;
 use App\Http\Livewire\Admin\AdminDashboardPage;
 use App\Http\Livewire\Admin\AdminCtg;
@@ -46,13 +45,12 @@ use App\Http\Livewire\OrderHistory;
 |
 */
 
-Route::get('/',homeComponent::class)->name('home.index');
-Route::get('/product',productPage::class)->name('product');    //shop
-
+Route::get('/',HomeComponent::class)->name('home.index');
+Route::get('/product',ProductPage::class)->name('product');    //shop
+Route::get('/cart',CartPage::class)->name('product.cart');  //shop.cart
 Route::get('/search',SearchPage::class)->name('product.search');
 Route::get('/donate', DonatePage::class)->name('donate');
 Route::post('/donate', [DonatePage::class, 'storeDonate'])->name('donate.store');
-
 Route::get('/user/profile', UserProfile::class)->name('user.profile');
 Route::get('/order-history', OrderHistory::class)->name('orderHistory');
 
@@ -64,9 +62,9 @@ Route::post('/create-checkout-session', [StripeController::class, 'createCheckou
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/user/dashboard',UserDashboardPage::class)->name('user.dashboard');
-    Route::get('/cart',cartPage::class)->name('product.cart');  //shop.cart
-    Route::get('/checkout',checkoutPage::class)->name('product.checkout');
-    Route::get('/product/{ctg}',productDetailsPage::class)->name('product.details'); 
+    
+    Route::get('/checkout',CheckoutPage::class)->name('product.checkout');
+    Route::get('/product-details/{ctg}',ProductDetailsPage::class)->name('product.details'); 
     Route::get('/product-category/{ctg}', Kategori::class)->name('product.category');
     Route::get('/canceldonate', DonateCancel::class)->name('donate.cancel');
     Route::get('/berjayadonate', DonateBerjaya::class)->name('donate.berjaya');

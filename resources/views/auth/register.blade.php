@@ -35,10 +35,16 @@
                                             <div class="form-group">
                                                 <input required="" type="password" name="password_confirmation" placeholder="Confirm password" required autocomplete="new-password">
                                             </div>
+                                            @error('password')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                          
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-fill-out btn-block hover-up" name="login">Submit &amp; Register</button>
                                             </div>
+                                            @if(Session::has('message'))
+                                                <div class="alert alert-success" role="alert">{{Session::get('message')}} </div>
+                                            @endif
                                         </form>                                        
                                         <div class="text-muted text-center">Already have an account? <a href="{{route('login')}}">Sign in now</a></div>
                                     </div>

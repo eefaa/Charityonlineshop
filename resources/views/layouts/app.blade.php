@@ -81,40 +81,6 @@
                                     <li><a class="active" href="/">Home </a></li>
                                     <li><a href="{{route('donate')}}">Donate</a></li>
                                     <li><a href= "{{route('product')}}">Shop</a></li>
-
-                        
-                                    <!-- <li><a href="product.men">Men Clothing<i class="fi-rs-angle-down"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="#">Top</a></li>
-                                            <li><a href="#">Pants</a></li>
-                                            <li><a href="#">Accessories</a></li>
-                                            <li><a href="#">Shoes</a></li>
-                                            <li><a href="#">Bags</a></li>                                            
-                                        </ul>
-                                    </li>
-                              
-                                    <li><a  href="#">Women Clothing<i class="fi-rs-angle-down"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="#">Top</a></li>
-                                            <li><a href="#">Pants</a></li>
-                                            <li><a href="#">Accessories</a></li>
-                                            <li><a href="#">Shoes</a></li>
-                                            <li><a href="#">Bags</a></li>                                            
-                                        </ul>
-                                    </li> 
-                                    <li><a href="{{route('product.garden')}}">Home & Garden<i class="fi-rs-angle-down"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="#">Tables</a></li>
-                                            <li><a href="#">Chair</a></li>
-                                            <li><a href="#">Garden</a></li>                                            
-                                        </ul>
-                                    </li> 
-                                    <li><a href="{{route('product.book')}}">Books<i class="fi-rs-angle-down"></i></a>
-                                        <ul class="sub-menu">
-                                            <li><a href="#">Fiction</a></li>
-                                            <li><a href="#">Non-Fiction</a></li>                                        
-                                        </ul>
-                                    </li>                                  -->
                                     
                                     @auth
                                     <li><a href="#">My Account<i class="fi-rs-angle-down"></i></a>

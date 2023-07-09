@@ -55,6 +55,7 @@ class ProductPage extends Component
         }
         
         $categories = Category::orderBy('name','ASC')->get();
+        // $categories = Category::where('ctg',$this->ctg)->first();
         
         return view('livewire.product-page', [
             'products' => $products,

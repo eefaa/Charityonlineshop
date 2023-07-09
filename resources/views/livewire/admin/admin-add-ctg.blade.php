@@ -45,13 +45,6 @@
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>
-                                    <div class="mb-3 mt-3">
-                                        <label for="name" class="form-label">Ctg</label>
-                                        <input type="text" name="ctg" class="form-control" placeholder="Enter category slug" wire:model="ctg" />
-                                        @error('ctg')
-                                            <p class="text-danger">{{message}}</p>
-                                        @enderror
-                                    </div>
                                     <button type="submit" class="btn btn-primary float-end">Submit</button>
                                 </form>
                             </div>

@@ -33,7 +33,12 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed','string', 'min:8', 'regex:/^(?=.*[A-Za-z])(?=.*\d).+$/'],
+            [
+                'password.confirmed' => 'The password confirmation does not match.',
+                'password.regex' => 'The password must contain a mix of letters and numbers.',
+                'password.min' => 'The password must be at least 8 characters.',
+            ]
            
         ]);
 
@@ -42,11 +47,13 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+        
+        session()->flash('message', 'Profile updated successfully!');
         event(new Registered($user));
 
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
+       
     }
 }

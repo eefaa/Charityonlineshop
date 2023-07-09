@@ -43,7 +43,6 @@ class Kategori extends Component
             $categories = Product::where('ctgId',$this->ctgId)->first();
             $id = $categories->id;
     
-         
         }
         public function render()
         {

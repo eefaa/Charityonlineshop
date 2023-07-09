@@ -26,8 +26,7 @@ class AddProduct extends Component
     public function addP()
     {
         $this->validate([
-            'name' => 'required',
-            'ctg' => 'required', 
+            'name' => 'required', 
             'shortDesc' => 'required', 
             'description' => 'required', 
             'oriPrice' => 'required',
@@ -38,7 +37,6 @@ class AddProduct extends Component
         ]);
         $product = new Product();
         $product->name = $this->name;
-        $product->ctg = $this->ctg;
         $product->shortDesc = $this->shortDesc;
         $product->description = $this->description;
         $product->oriPrice = $this->oriPrice;
@@ -58,10 +56,7 @@ class AddProduct extends Component
         session()->flash('message','Product has been added !');
     }
 
-    public function generatectg()
-    {
-        $this->ctg = Str::slug($this->name);
-    }
+  
 
     public function render()
     {
