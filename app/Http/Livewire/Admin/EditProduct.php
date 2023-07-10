@@ -8,13 +8,14 @@ use App\Models\Product;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class EditProduct extends Component
 {
     use WithFileUploads;
     public $productId;
     public $name;
-    public $ctg;
+    
     public $shortDesc;
     public $description;
     public $oriPrice;
@@ -29,13 +30,12 @@ class EditProduct extends Component
         $product = Product::find($productId);
         $this->productId = $product->id;
         $this->name = $product->name;
-        $this->ctg = $product->ctg;
         $this->shortDesc= $product->shortDesc;
         $this->description = $product->description;
         $this->oriPrice= $product->oriPrice;
         $this->stockStatus = $product->stockStatus;
         $this->quantity= $product->quantity;
-        $this->newimg= $product->newimg;
+        $this->image= $product->image;
         $this->ctgId= $product->ctgId;
     }
     
@@ -43,40 +43,41 @@ class EditProduct extends Component
     {
         $this->validate([
             'name' => 'required',
-            'ctg' => 'required', 
-            'shortDesc' => 'required', 
-            'description' => 'required', 
+            'shortDesc' => 'required',
+            'description' => 'required',
             'oriPrice' => 'required',
             'stockStatus' => 'required',
             'quantity' => 'required',
             'ctgId' => 'required',
         ]);
-
-        $product =Product::find($this->productId);
+    
+        $product = Product::find($this->productId);
         $product->name = $this->name;
-        $product->ctg = $this->ctg;
         $product->shortDesc = $this->shortDesc;
         $product->description = $this->description;
         $product->oriPrice = $this->oriPrice;
         $product->stockStatus = $this->stockStatus;
         $product->quantity = $this->quantity;
-        if($this->newimg)
-        {
-            unlink('assets/imgs/products/'.$product->image);
-            $imgName = Carbon::now()->timestamp.'.'.$this->newimg->extension();
-            $this->newimg->storeAs('products',$imgName);
-            $product->img = $this->imgName; 
-        }
+        // Clear the old image value
+    
+        if ($this->newimg) {
+            Storage::delete('assets/imgs/products/' . $product->img);
 
+            // Generate a unique file name for the new image
+            $imgName = "product-" . $product->id . "-1." . $this->newimg->getClientOriginalExtension();
+    
+            // Store the new image
+            $this->newimg->storeAs('shop', $imgName);
+    
+            // Update the product's image property
+            // $product->img = $imgName;
+        }
+    
         $product->ctgId = $this->ctgId;
         $product->save();
-        session()->flash('message','Product has been updated !');
+        session()->flash('message', 'Product has been updated!');
     }
-
-    public function generatectg()
-    {
-        $this->ctg = Str::slug($this->name);
-    }
+    
 
     public function render()
     {

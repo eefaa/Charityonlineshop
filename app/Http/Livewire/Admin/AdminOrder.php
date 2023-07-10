@@ -15,7 +15,6 @@ class AdminOrder extends Component
     public $tracking_no = [];
   
 
-
     public function updateStatus($orderId, $evt_status)
     {
         $order = Order::findOrFail($orderId);
@@ -28,24 +27,14 @@ class AdminOrder extends Component
         $order = Order::find($orderId);
         $order->tracking_no = $this->tracking_no[$orderId];
         $order->save();
-        
-        
-        // $this->validate([
-        //     'tracking_no' => 'required'
-            
-        // ]);
-        
-        // $order = Order::find($this->orderId);
-        // if ($order) {
-        //     $order->tracking_no = $this->tracking_no;
-        //     $order->save();
-           
-        // } else {
-        //     session()->flash('error', 'Order not found. Unable to update tracking number.');
-            
-        // }
-        
+     
     }
+
+    public function editOrder($orderId)
+    {
+        $this->orderId = $orderId;
+    }
+
 
     public function render()
     {

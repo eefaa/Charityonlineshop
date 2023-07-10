@@ -45,7 +45,7 @@
                                 <div class="product-cart-wrap mb-30">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
-                                        <a href="{{ route('product.details', ['ctg' => $product->ctg]) }}">
+                                        <a href="{{ route('product.details', ['ctg' => $ctg]) }}">
                                                     <img class="default-img"
                                                         src="{{ asset('assets/imgs/shop/product-') }}{{ $product->id }}-1.jpg"
                                                         alt="{{ $product->name }}">

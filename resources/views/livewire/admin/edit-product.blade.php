@@ -78,11 +78,11 @@
                                         <input type="file" name="image"class=" form-control" wire:model="newimg" />
                                         @if($newimg)
                                         {
-                                            <img src="{{$image->temporaryUrl()}}" width="120" />
+                                            <img src="{{$newimg->temporaryUrl()}}" width="120" />
                                         }
-                                        else{
-                                            <img src="{{asset('asset/imgs/products')}}/{{$image}}" width="120" />
-                                        }
+                                        <!-- else{
+                                            <img src="{{asset('asset/imgs/products-')}}/{{$image}}" width="120" />
+                                        } -->
                                         @endif
                                      
                                     </div>

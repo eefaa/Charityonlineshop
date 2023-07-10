@@ -89,14 +89,22 @@
                                                 </select>
                                             </td>
                                             <td >
-                                                <input type="text" wire:model="tracking_no.{{ $order->id }}" />
-                                                <button wire:click="updatetracking({{ $order->id }})">Save</button>
+                                                <!-- <input type="text" wire:model="tracking_no.{{ $order->id }}" id="tracking_no" />
+                                                <button wire:click="updatetracking({{ $order->id }})">Save</button> -->
+                                                @if ($order->id == $orderId)
+                                                    <input type="text" wire:model="tracking_no.{{ $order->id }}" id="tracking_no" />
+                                                    <button wire:click="updatetracking({{ $order->id }})">Save</button>
+                                                @else
+                                                    {{ $order->tracking_no }}
+                                                    <button wire:click="editOrder({{ $order->id }})">Edit</button>
+                                                @endif
                                             </td>
+                                            
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            {{$orders->links()}}
+                        
                         </div>
                     </div>
                 </div>
